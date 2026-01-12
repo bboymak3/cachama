@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es-VE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rangel Restaurant La Cachamita de Oro | Sabores Auténticos de Venezuela en Barinas</title>
+  <meta name="description" content="Auténtica comida criolla venezolana en Barinas. Disfruta carne asada, cochino, hervidos y cachapas en La Cachamita de Oro. Ubicados en la Carretera Nacional vía a San Cristóbal.">
+  <meta name="keywords" content="restaurante venezolano Barinas, comida criolla Barinas, La Cachamita de Oro, carne asada Barinas, hervido de gallina, cachapa con queso Barinas, cochino horneado, restaurante carretera nacional Barinas">
+  <link rel="canonical" href="https://rangelrestaurant.com.ve/"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  
+  <style>
+    .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/carneasada.heic');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(to right, #f39c12, #e74c3c);
+    }
+    
+    .dish-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .dish-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+    
+    .dish-card img {
+      transition: transform 0.3s ease;
+    }
+    
+    .dish-card:hover img {
+      transform: scale(1.1);
+    }
+    
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #f39c12, #e74c3c);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-icon:hover {
+      transform: rotate(360deg);
+    }
+    
+    .testimonial-card {
+      background: #f8f9fa;
+      border-left: 4px solid #f39c12;
+    }
+    
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      background: #128c7e;
+    }
+    
+    .navbar {
+      background: rgba(0,0,0,0.9) !important;
+      backdrop-filter: blur(10px);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #f39c12, #e74c3c);
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .gallery-item {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .gallery-item img {
+      transition: transform 0.5s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-overlay h5 {
+      color: white;
+      margin: 0;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#inicio">
+      <i class="fas fa-utensils text-warning me-2"></i>
+      La Cachamita de Oro
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#especialidades">Especialidades</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-section" id="inicio">
+  <div class="container text-center">
+    <h1 class="display-2 fw-bold mb-4">Sabores Auténticos de Venezuela en Barinas</h1>
+    <h2 class="display-4 text-warning mb-4">Rangel Restaurant "La Cachamita de Oro"</h2>
+    <p class="lead mb-5">En Rangel Restaurant "La Cachamita de Oro" servimos tradición criolla en cada plato. Desde la carne asada más jugosa hasta los platos más tradicionales, cada bocado es un viaje a los sabores genuinos de Venezuela.</p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="#contacto" class="btn btn-primary btn-lg">
+        <i class="fas fa-calendar-check me-2"></i>¡Reserva tu mesa y vive la experiencia criolla!
+      </a>
+      <a href="#especialidades" class="btn btn-outline-light btn-lg">
+        <i class="fas fa-book-open me-2"></i>Ver Menú Completo
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NUESTRA PASIÓN CRIOLLA -->
+<section class="py-5" id="pasion">
+  <div class="container">
+    <h2 class="text-center section-title">La Autenticidad Hecha Comida</h2>
+    <p class="text-center text-muted mb-5">Somos más que un restaurante; somos custodios de la tradición culinaria venezolana</p>
+    
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <p class="lead">Desde 1987, la familia Rangel ha dedicado su sazón y corazón a recrear los platos que han alimentado generaciones de barineses.</p>
+        
+        <h4 class="mt-4 mb-3">Nuestro secreto está en tres pilares:</h4>
+        <div class="mb-3">
+          <h5><i class="fas fa-leaf text-primary me-2"></i>Ingredientes Frescos</h5>
+          <p>Seleccionamos los mejores productos locales</p>
+        </div>
+        <div class="mb-3">
+          <h5><i class="fas fa-book text-primary me-2"></i>Recetas Familiares</h5>
+          <p>Técnicas transmitidas de abuelos a nietos</p>
+        </div>
+        <div class="mb-3">
+          <h5><i class="fas fa-heart text-primary me-2"></i>Pasión Criolla</h5>
+          <p>Amor por Venezuela en cada preparación</p>
+        </div>
+        
+        <blockquote class="blockquote mt-4 p-3 bg-light rounded">
+          <p class="mb-0">"Donde la tradición sabe a hogar y cada plato cuenta una historia venezolana"</p>
+        </blockquote>
+      </div>
+      <div class="col-lg-6">
+        <img src="images/cachamitadorada03.webp" class="img-fluid rounded shadow" alt="Cachama Dorada Especial">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="py-5 bg-light" id="especialidades">
+  <div class="container">
+    <h2 class="text-center section-title">Nuestros Platos Emblemáticos</h2>
+    <p class="text-center text-muted mb-5">Tesoros de la tierra y del alma</p>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/carneasada.heic" class="card-img-top" alt="Carne Asada" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Carne Asada Criolla</h4>
+            <p class="card-text">Cortes premium marinados por 24 horas con nuestro adobo secreto familiar, asados a la parrilla para lograr el punto perfecto entre jugosidad y sabor ahumado.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/cachamafrita.webp" class="card-img-top" alt="Cochino" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Cochino Horneado</h4>
+            <p class="card-text">Cerdo lentamente horneado por 8 horas, acompañado de yuca, tajadas y guasacaca recién hecha. Una experiencia de texturas y sabores que define la cocina llanera.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/hervido.heic" class="card-img-top" alt="Hervido" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Hervidos que Alimentan el Alma</h4>
+            <p class="card-text">Medicina para el cuerpo y espíritu con gallina criolla, papa, yuca y hierbas aromáticas. Sabor reconfortante que te transporta a casa.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/cachamitadorada03.webp" class="card-img-top" alt="Cachama Dorada" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Hervido de Bagre y Cachama</h4>
+            <p class="card-text">Pescado de río fresco con verduras, perfectamente balanceado. El sabor auténtico de nuestras aguas en cada cucharada.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/cachamafrita.webp" class="card-img-top" alt="Cachapa" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">La Reina de las Meriendas</h4>
+            <p class="card-text">Maíz molido fresco, cocinado a la plancha y relleno con queso de mano artesanal. Dulzura natural que derrite el corazón.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/carneasada.heic" class="card-img-top" alt="Carne Asada" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Cachama Dorada Especial</h4>
+            <p class="card-text">Nuestra joya culinaria. Cachama fresca preparada con receta secreta que resalta su sabor único y textura jugosa.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/hervido.heic" class="card-img-top" alt="Hervido" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Sopa de Res Criolla</h4>
+            <p class="card-text">Nuestra sopa tradicional con carne de res, verduras frescas y el sazón que nos caracteriza. Perfecta para cualquier ocasión.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-3">
+        <div class="card dish-card h-100">
+          <div class="overflow-hidden" style="height: 200px;">
+            <img src="images/cachamitadorada03.webp" class="card-img-top" alt="Cachama Dorada" style="height: 100%; object-fit: cover;">
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">Pabellón Criollo</h4>
+            <p class="card-text">El plato bandera de Venezuela. Carne mechada, arroz blanco, caraotas fritas y tajadas. Un clásico que nunca falla.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="py-5" id="servicios">
+  <div class="container">
+    <h2 class="text-center section-title">Experiencia Única</h2>
+    <p class="text-center text-muted mb-5">Más que una comida, una tradición</p>
+    
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h3 class="mb-4">Ambiente Familiar</h3>
+        <p class="lead">Ven y siente el calor venezolano en cada rincón. Nuestro espacio está diseñado para que te sientas como en casa, con la calidez del llano y la hospitalidad barinesa.</p>
+        
+        <h3 class="mt-4 mb-3">Ubicación Privilegiada</h3>
+        <p>Carretera Nacional vía a San Cristóbal, sector La Caramuca</p>
+        
+        <h4 class="mt-3">El lugar perfecto para:</h4>
+        <ul>
+          <li><i class="fas fa-car text-primary me-2"></i>Viajeros: Pausa gastronómica en tu recorrido</li>
+          <li><i class="fas fa-users text-primary me-2"></i>Familias: Celebración de domingos y fechas especiales</li>
+          <li><i class="fas fa-briefcase text-primary me-2"></i>Negocios: Almuerzos en un ambiente relajado</li>
+          <li><i class="fas fa-map-marked-alt text-primary me-2"></i>Turistas: Descubre la verdadera comida venezolana</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <img src="images/hervido.heic" class="img-fluid rounded shadow" alt="Ambiente del restaurante">
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 text-center">
+        <div class="service-icon text-white">
+          <i class="fas fa-concierge-bell fa-2x"></i>
+        </div>
+        <h5>Excelente Atención</h5>
+        <p class="text-muted">Personal capacitado para hacer tu visita inolvidable</p>
+      </div>
+      
+      <div class="col-md-6 col-lg-3 text-center">
+        <div class="service-icon text-white">
+          <i class="fas fa-parking fa-2x"></i>
+        </div>
+        <h5>Buen Estacionamiento</h5>
+        <p class="text-muted">Amplia zona de estacionamiento seguro y vigilado</p>
+      </div>
+      
+      <div class="col-md-6 col-lg-3 text-center">
+        <div class="service-icon text-white">
+          <i class="fas fa-wifi fa-2x"></i>
+        </div>
+        <h5>Zona WiFi</h5>
+        <p class="text-muted">Internet gratuito de alta velocidad para todos nuestros clientes</p>
+      </div>
+      
+      <div class="col-md-6 col-lg-3 text-center">
+        <div class="service-icon text-white">
+          <i class="fas fa-shield-alt fa-2x"></i>
+        </div>
+        <h5>Vigilancia Garantizada</h5>
+        <p class="text-muted">Seguridad las 24 horas para tu tranquilidad</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HORARIOS -->
+<section class="py-5 bg-light" id="horarios">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="mb-4">Horarios que se Adaptan a Ti</h2>
+        <div class="mb-4">
+          <h5><i class="fas fa-calendar-alt text-primary me-2"></i>Abiertos</h5>
+          <p class="lead">De miércoles a domingo, desde las 11:00 AM hasta las 8:00 PM</p>
+        </div>
+        <div class="mb-4">
+          <h5><i class="fas fa-users text-primary me-2"></i>Grupos grandes y eventos</h5>
+          <p class="lead">Reserva con anticipación para prepararte una experiencia inolvidable</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card bg-primary text-white">
+          <div class="card-body text-center p-4">
+            <h3 class="card-title">¿Listo para disfrutar de la verdadera comida venezolana?</h3>
+            <p class="card-text">El aroma del cochino horneado ya está en el aire, las cachapas crujen en la plancha y los hervidos esperan calientes. Solo falta un ingrediente: tú.</p>
+            <p class="mt-3">Ven y descubre por qué somos el secreto mejor guardado de Barinas... y el favorito de quienes ya nos conocen.</p>
+            <div class="alert alert-light mt-4">
+              <strong>Oferta Especial para Primera Visita:</strong> Presenta este mensaje y recibe una porción de tequeños criollos de cortesía
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="py-5" id="testimonios">
+  <div class="container">
+    <h2 class="text-center section-title">Lo que Dicen Nuestros Comensales</h2>
+    
+    <div class="row g-4 mt-4">
+      <div class="col-md-4">
+        <div class="card testimonial-card h-100">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="card-text">"Vengo desde San Cristóbal solo por su hervido de gallina. Es exactamente como lo hacía mi abuela. ¡Nostalgia pura!"</p>
+            <footer class="blockquote-footer">
+              <strong>María G.</strong> - Cliente por 15 años
+            </footer>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card testimonial-card h-100">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="card-text">"La mejor carne asada de Barinas. Cada vez que tengo visita de Caracas, los traigo aquí para mostrarles la verdadera comida venezolana."</p>
+            <footer class="blockquote-footer">
+              <strong>Carlos R.</strong> - Cliente frecuente
+            </footer>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4">
+        <div class="card testimonial-card h-100">
+          <div class="card-body">
+            <div class="mb-3">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+            <p class="card-text">"Pedí un plato especial que no estaba en el menú, y me lo prepararon perfecto. ¡Eso es servicio!"</p>
+            <footer class="blockquote-footer">
+              <strong>Laura M.</strong> - Visitante
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA DE CARNES ASADAS -->
+<section class="py-5" id="galeria">
+  <div class="container">
+    <h2 class="text-center section-title">Galería de Sabores Llaneros</h2>
+    <p class="text-center text-muted mb-5">Nuestra especialidad: la carne asada perfecta</p>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="gallery-item rounded" style="height: 250px;">
+          <img src="https://images.unsplash.com/photo-1529692236671-f1f6cf96834a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carne asada tradicional">
+          <div class="gallery-overlay">
+            <h5>Carne Asada Tradicional</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="gallery-item rounded" style="height: 250px;">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a19906?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cortes premium a la parrilla">
+          <div class="gallery-overlay">
+            <h5>Cortes Premium a la Parrilla</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="gallery-item rounded" style="height: 250px;">
+          <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carne asada con guarniciones">
+          <div class="gallery-overlay">
+            <h5>Carne Asada con Guarniciones</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="gallery-item rounded" style="height: 250px;">
+          <img src="https://images.unsplash.com/photo-1594311966134-41899d1d7f8e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Parrilla llanera">
+          <div class="gallery-overlay">
+            <h5>Parrilla Llanera</h5>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="gallery-item rounded" style="height: 250px;">
+          <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Carne asada jugosa">
+          <div class="gallery-overlay">
+            <h5>Carne Asada Jugosa</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-5">
+      <p class="lead">¿Antojo de carne asada? Ven y prueba la mejor de Barinas</p>
+      <a href="#contacto" class="btn btn-primary btn-lg mt-3">
+        <i class="fas fa-calendar-check me-2"></i>Reservar tu Mesa
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="py-5 bg-light" id="contacto">
+  <div class="container">
+    <h2 class="text-center section-title">Tu Mesa está Puesta</h2>
+    
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Reserva tu Mesa</h4>
+            <form id="reservationForm">
+              <div class="mb-3">
+                <label class="form-label">Nombre Completo</label>
+                <input type="text" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" required>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Fecha</label>
+                  <input type="date" class="form-control" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Hora</label>
+                  <input type="time" class="form-control" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Número de Personas</label>
+                <select class="form-select">
+                  <option>1-2 personas</option>
+                  <option>3-4 personas</option>
+                  <option>5-6 personas</option>
+                  <option>Más de 6 personas</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Comentarios</label>
+                <textarea class="form-control" rows="3" placeholder="Alguna preferencia especial?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                <i class="fas fa-calendar-check me-2"></i>Reservar Ahora
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="card h-100">
+          <div class="card-body">
+            <h4 class="card-title mb-4">Información de Contacto</h4>
+            <div class="mb-4">
+              <h5><i class="fas fa-map-marker-alt text-primary me-2"></i>Ubicación</h5>
+              <p>Carretera Nacional vía a San Cristobal<br>Sector la Caramuca, Municipio Barinas</p>
+            </div>
+            <div class="mb-4">
+              <h5><i class="fas fa-phone text-primary me-2"></i>Teléfono</h5>
+              <p>(0273) XXX-XXXX</p>
+            </div>
+            <div class="mb-4">
+              <h5><i class="fas fa-clock text-primary me-2"></i>Horario</h5>
+              <p>Miércoles a Domingo: 11:00 AM - 8:00 PM</p>
+            </div>
+            <div class="mb-4">
+              <h5><i class="fas fa-envelope text-primary me-2"></i>Email</h5>
+              <p>info@lacachamitadeoro.com</p>
+            </div>
+            <div class="ratio ratio-16x9">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.123456789!2d-70.123456789!3d8.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMDAnNDQuMSJTIDcwwrAwNyczNC4yIlc!5e0!3m2!1ses-419!2sve!4v1234567890" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center mt-4">
+      <a href="https://wa.me/584141234567?text=Hola!%20Quiero%20hacer%20una%20reserva%20en%20La%20Cachamita%20de%20Oro" class="btn btn-success btn-lg me-2">
+        <i class="fab fa-whatsapp me-2"></i>Reservar por WhatsApp
+      </a>
+      <a href="tel:0273-XXX-XXXX" class="btn btn-primary btn-lg me-2">
+        <i class="fas fa-phone me-2"></i>LLámanos
+      </a>
+      <a href="#galeria" class="btn btn-outline-primary btn-lg">
+        <i class="fas fa-map-marked-alt me-2"></i>Ver Cómo Llegar
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h5><i class="fas fa-utensils text-warning me-2"></i>La Cachamita de Oro</h5>
+        <p class="text-white-50">Donde cada plato es un abrazo criollo</p>
+        <p class="text-white-50">Rangel Restaurant "La Cachamita de Oro"</p>
+        <p class="text-white-50">Carretera Nacional vía a San Cristóbal, sector La Caramuca</p>
+        <p class="text-white-50">Municipio Barinas, Estado Barinas</p>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <div class="mb-3">
+          <a href="https://www.instagram.com/lacachamitadeoro" target="_blank" class="text-white-50 me-3"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white-50 me-3"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/584141234567" target="_blank" class="text-white-50"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p class="text-white-50 small mb-0">&copy; 2024 Rangel Restaurant La Cachamita de Oro. Todos los derechos reservados.</p>
+        <p class="text-white-50 small">#LaCachamitaDeOro #ComidaCriollaBarinas #SaborVenezolano</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/584141234567?text=Hola!%20Quiero%20hacer%20un%20pedido%20o%20reserva" class="whatsapp-float" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Smooth scrolling para enlaces de navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Formulario de reserva
+document.getElementById('reservationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const name = this.querySelector('input[type="text"]').value;
+  const phone = this.querySelector('input[type="tel"]').value;
+  const date = this.querySelector('input[type="date"]').value;
+  const time = this.querySelector('input[type="time"]').value;
+  const people = this.querySelector('select').value;
+  const comments = this.querySelector('textarea').value;
+  
+  const message = `Hola! Quiero hacer una reserva en La Cachamita de Oro:%0A%0A` +
+    `Nombre: ${name}%0A` +
+    `Teléfono: ${phone}%0A` +
+    `Fecha: ${date}%0A` +
+    `Hora: ${time}%0A` +
+    `Personas: ${people}%0A` +
+    `Comentarios: ${comments}`;
+  
+  window.open(`https://wa.me/584141234567?text=${message}`, '_blank');
+});
+
+// Cambiar color del navbar al hacer scroll
+window.addEventListener('scroll', function() {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 100) {
+    navbar.style.background = 'rgba(0,0,0,0.95)';
+  } else {
+    navbar.style.background = 'rgba(0,0,0,0.9)';
+  }
+});
+</script>
+
+</body>
+</html>
