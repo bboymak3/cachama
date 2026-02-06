@@ -13,6 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="🥇 La Cachamita de Oro - Tradición Llanera">
     <meta property="og:description" content="La mejor Cachama Frita y Carne Asada de Barinas. Ingredientes de alta calidad y menú completo.">
+    <!-- IMAGEN ESPECÍFICA EN .jpg SEGÚN SOLICITUD -->
     <meta property="og:image" content="images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg">
 
     <link rel="icon" type="image/jpeg" href="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
@@ -83,7 +84,7 @@
         .btn-cta { background-color: var(--secondary-color); color: white; padding: 8px 15px; border-radius: 50px; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); white-space: nowrap; }
         .btn-cta:hover { background-color: #219150; transform: translateY(-2px); }
 
-        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
         .bar { width: 25px; height: 3px; background-color: var(--primary-color); transition: 0.3s; }
 
         /* --- HERO --- */
@@ -115,10 +116,11 @@
             background: white; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s;
             border: 1px solid #eee;
+            display: flex; flex-direction: column;
         }
         .card:hover { transform: translateY(-5px); }
         .card-img { height: 200px; width: 100%; object-fit: cover; }
-        .card-body { padding: 20px; }
+        .card-body { padding: 20px; flex-grow: 1; }
         .card-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; color: var(--primary-color); }
 
         /* --- LISTA DE ITEMS --- */
@@ -127,7 +129,7 @@
         .list-item h4 { color: var(--text-dark); margin-bottom: 5px; }
         .list-item p { font-size: 0.9rem; color: #666; }
 
-        /* --- NUEVA SECCIÓN: GAstronomía (Textos Largos) --- */
+        /* --- GAstronomía (Textos Largos) --- */
         .gastronomy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
         .gastronomy-card { background: white; padding: 30px; border-radius: 10px; border-top: 5px solid var(--accent-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%; }
         .gastronomy-card h4 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; text-transform: uppercase; font-family: 'Georgia', serif; }
@@ -138,20 +140,27 @@
         .dict-term { background: white; padding: 20px; border-radius: 10px; border-top: 4px solid var(--secondary-color); }
         .dict-term h4 { color: var(--secondary-color); text-transform: uppercase; font-size: 0.9rem; margin-bottom: 5px; }
         .dict-term strong { display: block; font-size: 1.1rem; margin-bottom: 5px; color: var(--text-dark); }
+        .dict-term p { color: #555; }
 
-        /* --- GALERÍA DE VIDEOS --- */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        /* --- GALERÍA DE VIDEOS (Responsive) --- */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .video-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
         .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
         .video-info { padding: 15px; }
         .video-info h4 { font-size: 0.9rem; color: var(--text-dark); font-weight: bold; }
 
-        /* --- GALERÍA DE FOTOS EXTRA --- */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
-        .gallery-item { border-radius: 10px; overflow: hidden; height: 200px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .gallery-item:hover img { transform: scale(1.1); }
+        /* --- GALERÍA DE FOTOS (EXPANDIDA) --- */
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 220px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.15); }
+        .gallery-item::after {
+            content: '+';
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            color: white; font-size: 2rem; opacity: 0; transition: 0.3s; pointer-events: none; text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .gallery-item:hover::after { opacity: 1; }
 
         /* --- CONTACTO & MAPA --- */
         .contact-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
@@ -164,13 +173,98 @@
         .footer-col h4 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; }
         .footer-logo { height: 80px; margin-bottom: 15px; object-fit: contain; }
         
-        /* --- ELEMENTOS EXTRAS --- */
+        /* --- BOTONES FLOTANTES (WHATSAPP Y CHATBOT) --- */
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: transform 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); }
         
+        /* NUEVO BOTÓN CHATBOT - CLICK PARA MODAL */
+        .chatbot-float {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            background-color: #f1c40f;
+            color: #2c3e50;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
+            z-index: 999;
+            cursor: pointer; /* Cambiado a cursor pointer para indicar click */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse-yellow 2s infinite;
+        }
+        .chatbot-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(241, 196, 15, 0.8);
+        }
+
+        @keyframes pulse-yellow {
+            0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(241, 196, 15, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
+        }
+
+        /* MODAL CHATBOT */
+        .chatbot-modal {
+            display: none; 
+            position: fixed; 
+            z-index: 3000; 
+            left: 0; 
+            top: 0; 
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center; 
+            align-items: center;
+        }
+
+        .chatbot-content {
+            background-color: #fff;
+            width: 90%;
+            height: 90%;
+            max-width: 600px;
+            max-height: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatbot-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .close-chatbot {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #333;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 3001;
+            background: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .close-chatbot:hover { background: #fff; color: #d35400; }
+
+        /* LIGHTBOX (IMÁGENES) */
         .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; flex-direction: column; }
         .lightbox.active { display: flex; animation: fadeIn 0.3s; }
-        .lightbox img { max-width: 90%; max-height: 80vh; border-radius: 5px; }
+        .lightbox img { max-width: 90%; max-height: 80vh; border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
         .close-lightbox { color: white; font-size: 40px; cursor: pointer; position: absolute; top: 20px; right: 30px; }
 
         /* --- ANIMACIONES --- */
@@ -179,22 +273,39 @@
 
         @media (max-width: 768px) {
             .hamburger { display: flex; }
-            .nav-menu { position: fixed; top: 70px; right: -100%; width: 80%; height: 100vh; background-color: white; flex-direction: column; padding: 40px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s ease; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background-color: white; flex-direction: column; padding: 60px 20px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s ease; z-index: 1000; }
             .nav-menu.active { right: 0; }
             .grid-2, .grid-4 { grid-template-columns: 1fr; }
             .hero-content h2 { font-size: 2.2rem; }
             .nav-menu { gap: 20px; }
+            
+            /* Ajustes para móviles muy pequeños */
+            .chatbot-content { width: 95%; height: 80%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- MODAL DEL CHATBOT (Se abre en la misma ventana) -->
+    <div id="chatbotModal" class="chatbot-modal">
+        <div class="chatbot-content">
+            <span class="close-chatbot" onclick="closeChatbot()">&times;</span>
+            <iframe src="https://cachamito.estilosgrado33.workers.dev/" title="Chatbot"></iframe>
+        </div>
+    </div>
+
+    <!-- BOTÓN CHATBOT (AMARILLO BRILLANTE) -->
+    <div class="chatbot-float" onclick="openChatbot()" title="Asistente Virtual">🤖</div>
+
+    <!-- BOTÓN WHATSAPP -->
     <a href="https://wa.me/584264562796?text=Hola,%20quiero%20pedir%20en%20La%20Cachamita%20de%20Oro" class="whatsapp-float" target="_blank">💬</a>
-    <div class="lightbox" id="lightbox"><span class="close-lightbox">&times;</span><img id="lightbox-img" src=""></div>
+
+    <div class="lightbox" id="lightbox"><span class="close-lightbox">&times;</span><img id="lightbox-img" src="" alt="Vista Ampliada"></div>
 
     <header>
         <div class="nav-container">
             <div class="logo-area">
+                <!-- EXTENSIÓN .JPEG -->
                 <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>🥇 LA CACHAMITA<br>DE ORO 🟢</h1>
@@ -246,7 +357,8 @@
             
             <div class="grid-2">
                 <div>
-                    <img src="images/plato-cachama-frita-gigante.jpg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachama Grande">
+                    <!-- .JPEG -->
+                    <img src="images/plato-cachama-frita-gigante.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachama Grande">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px;">"CACHAMA DORADA DE ORO" - El Plato Emblemático de Barinas</h2>
@@ -287,7 +399,8 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/cachapa-queso-mano-rellena.jpg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachapa Venezolana">
+                    <!-- .JPEG -->
+                    <img src="images/cachapa-queso-mano-rellena.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachapa Venezolana">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px;">🌽 CACHAPA VENEZOLANA LLANERA - El Sabor del Maíz en tu Paladar</h2>
@@ -326,7 +439,8 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/carne-asada-llanera-parrilla.jpg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Carne Asada Llanera">
+                    <!-- .JPEG -->
+                    <img src="images/carne-asada-llanera-parrilla.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Carne Asada Llanera">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px;">🥩 CARNE ASADA LLANERA - La Tradición del Asado en Barinas</h2>
@@ -365,7 +479,8 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/cochino-frito-cachapa-queso.jpg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cochino Frito">
+                    <!-- .JPEG -->
+                    <img src="images/cochino-frito-cachapa-queso.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cochino Frito">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px;">🐷 COCHINO FRITO VENEZOLANO - La Crujiente Delicia Criolla</h2>
@@ -405,7 +520,8 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/cocktel-camaron-barinas.jpg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Marisquería Criolla">
+                    <!-- .JPEG -->
+                    <img src="images/cocktel-camaron-barinas.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Marisquería Criolla">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px;">🦐 MARISQUERÍA CRIOLLA - Frescura del Mar en el Llano</h2>
@@ -453,22 +569,26 @@
             </div>
             <div class="grid-4 text-center">
                 <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="images/pescado-envuelto-tostones.jpg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Pescado">
+                    <!-- .JPEG -->
+                    <img src="images/pescado-envuelto-tostones.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Pescado">
                     <h4 style="color:var(--text-dark);">Pescado Fresco</h4>
                     <p style="font-size: 0.85rem; color: #777;">De río, diario</p>
                 </div>
                 <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="images/costilla-res-asada-carbon.jpg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Carne">
+                    <!-- .JPEG -->
+                    <img src="images/costilla-res-asada-carbon.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Carne">
                     <h4 style="color:var(--text-dark);">Carnes Premium</h4>
                     <p style="font-size: 0.85rem; color: #777;">Corte selecto</p>
                 </div>
                 <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="images/cachapa-queso-mano-rellena.jpg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Maiz">
+                    <!-- .JPEG -->
+                    <img src="images/cachapa-queso-mano-rellena.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Maiz">
                     <h4 style="color:var(--text-dark);">Maíz Criollo</h4>
                     <p style="font-size: 0.85rem; color: #777;">100% Natural</p>
                 </div>
                 <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <img src="images/picadillo-criollo-venezolano.jpg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Especias">
+                    <!-- .JPEG -->
+                    <img src="images/picadillo-criollo-venezolano.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Especias">
                     <h4 style="color:var(--text-dark);">Especias</h4>
                     <p style="font-size: 0.85rem; color: #777;">Aromáticas locales</p>
                 </div>
@@ -495,15 +615,18 @@
             <h4 style="color: var(--secondary-color); margin: 40px 0 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">DEL RÍO Y EL MAR</h4>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/ceviche-mixto-barinas.jpg" class="card-img" alt="Combinado Mariscos">
+                    <!-- .JPEG -->
+                    <img src="images/ceviche-mixto-barinas.jpeg" class="card-img" alt="Combinado Mariscos">
                     <div class="card-body"><h4 class="card-title">Ceviche Mixto</h4><p>Marisquería familiar Barinas</p></div>
                 </div>
                 <div class="card">
-                    <img src="images/cocktel-camaron-barinas.jpg" class="card-img" alt="Camarones">
+                    <!-- .JPEG -->
+                    <img src="images/cocktel-camaron-barinas.jpeg" class="card-img" alt="Camarones">
                     <div class="card-body"><h4 class="card-title">Camarones al Ajillo</h4><p>Salteados con vino blanco</p></div>
                 </div>
                 <div class="card">
-                    <img src="images/mojarra-frita-mariscos.jpg" class="card-img" alt="Pescado Plancha">
+                    <!-- .JPEG -->
+                    <img src="images/mojarra-frita-mariscos.jpeg" class="card-img" alt="Pescado Plancha">
                     <div class="card-body"><h4 class="card-title">Pescado a la Plancha</h4><p>Filete de corvina</p></div>
                 </div>
             </div>
@@ -511,15 +634,18 @@
             <h4 style="color: var(--secondary-color); margin: 40px 0 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">DE LA PARRILLA Y HORNO</h4>
             <div class="grid-3">
                 <div class="card">
-                    <img src="images/carne-asada-llanera-parrilla.jpg" class="card-img" alt="Carne Asada">
+                    <!-- .JPEG -->
+                    <img src="images/carne-asada-llanera-parrilla.jpeg" class="card-img" alt="Carne Asada">
                     <div class="card-body"><h4 class="card-title">Carne Asada Llanera</h4><p>Porción generosa completa</p></div>
                 </div>
                 <div class="card">
-                    <img src="images/costilla-res-asada-carbon.jpg" class="card-img" alt="Costilla BBQ">
+                    <!-- .JPEG -->
+                    <img src="images/costilla-res-asada-carbon.jpeg" class="card-img" alt="Costilla BBQ">
                     <div class="card-body"><h4 class="card-title">Costilla BBQ</h4><p>Estilo americano</p></div>
                 </div>
                 <div class="card">
-                    <img src="images/cochino-frito-cachapa-queso.jpg" class="card-img" alt="Parrillada">
+                    <!-- .JPEG -->
+                    <img src="images/cochino-frito-cachapa-queso.jpeg" class="card-img" alt="Parrillada">
                     <div class="card-body"><h4 class="card-title">Cochino Frito</h4><p>Crujiente tradicional</p></div>
                 </div>
             </div>
@@ -527,18 +653,20 @@
             <h4 style="color: var(--secondary-color); margin: 40px 0 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">PLATOS CRIOLLOS EMBLEMÁTICOS</h4>
             <div class="grid-2">
                 <div class="card" style="display:flex; align-items:center; padding: 10px;">
-                    <img src="images/pabellon-criollo-venezolano.jpg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;" alt="Pabellon">
+                    <!-- .JPEG -->
+                    <img src="images/pabellon-criollo-venezolano.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;" alt="Pabellon">
                     <div style="padding: 20px;"><h4 class="card-title">Pabellón Criollo Auténtico</h4><p>La bandera venezolana: carne, caraotas, arroz y tajadas.</p></div>
                 </div>
                 <div class="card" style="display:flex; align-items:center; padding: 10px;">
-                    <img src="images/arepa-cachapa-reina-pepiada.jpg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;" alt="Plato Típico">
+                    <!-- .JPEG -->
+                    <img src="images/arepa-cachapa-reina-pepiada.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;" alt="Plato Típico">
                     <div style="padding: 20px;"><h4 class="card-title">Asado Negro</h4><p>Carne de res en salsa oscura de papelón y especias. Tradición de domingo.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERÍA DE VIDEOS (30 VIDEOS) -->
+    <!-- GALERÍA DE VIDEOS (LISTA COMPLETA) -->
     <section id="videos" style="background-color: #f0f4f8;">
         <div class="container">
             <div class="section-title">
@@ -547,281 +675,42 @@
             </div>
 
             <div class="video-grid">
-                <!-- 1. Preparación Cachama Frita -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/cachama-frita-dorada-entera.jpg">
-                            <source src="video/video-preparacion-cachama-frita.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Preparación Cachama Frita</h4></div>
-                </div>
-                <!-- 2. Carne Asada al Carbón -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/carne-asada-llanera-parrilla.jpg">
-                            <source src="video/video-carne-asada-al-carbon.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Carne Asada al Carbón</h4></div>
-                </div>
-                <!-- 3. Haciendo Cachapas -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/cachapa-queso-mano-rellena.jpg">
-                            <source src="video/video-haciendo-cachapas-llaneras.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Haciendo Cachapas</h4></div>
-                </div>
-                <!-- 4. Parrillada Mixta -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/parrillada-mixta-2-personas.jpg">
-                            <source src="video/video-parrillada-mixta-preparacion.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Parrillada Mixta</h4></div>
-                </div>
-                <!-- 5. Sopa de Res -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/sopa-de-res-gorda-barinas.jpg">
-                            <source src="video/video-sopa-de-res-guisando.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Sopa de Res Guisando</h4></div>
-                </div>
-                <!-- 6. Sancocho de Pescado -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/sopa-de-res-gorda-barinas.jpg">
-                            <source src="video/video-sancocho-de-pescado.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Sancocho de Pescado</h4></div>
-                </div>
-                <!-- 7. Cochino Frito -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/cochino-frito-cachapa-queso.jpg">
-                            <source src="video/video-cochino-frito-crujiente.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Cochino Frito Crujiente</h4></div>
-                </div>
-                <!-- 8. Pabellon Criollo -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/pabellon-criollo-venezolano.jpg">
-                            <source src="video/video-pabellon-criollo-receta.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Pabellón Criollo Receta</h4></div>
-                </div>
-                <!-- 9. Asado Negro -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/arepa-cachapa-reina-pepiada.jpg">
-                            <source src="video/video-asado-negro-casero.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Asado Negro Casero</h4></div>
-                </div>
-                <!-- 10. Mariscos al Ajillo -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/cocktel-camaron-barinas.jpg">
-                            <source src="video/video-mariscos-al-ajillo.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Mariscos al Ajillo</h4></div>
-                </div>
-                <!-- 11. Interior Restaurante -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/restaurante-cachamita-oro-portada.jpg">
-                            <source src="video/video-interior-restaurante-barinas.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Interior Restaurante</h4></div>
-                </div>
-                <!-- 12. Cliente Probando -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/galeria-clientes-felices.jpg">
-                            <source src="video/video-cliente-probando-cachama.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Cliente Probando</h4></div>
-                </div>
-                <!-- 13. Ensalada Fresca -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/ceviche-mixto-barinas.jpg">
-                            <source src="video/video-ensalada-fresca-preparacion.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Ensalada Fresca</h4></div>
-                </div>
-                <!-- 14. Tajadas de Plátano -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/pabellon-criollo-venezolano.jpg">
-                            <source src="video/video-tajadas-de-platano.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Tajadas de Plátano</h4></div>
-                </div>
-                <!-- 15. Yuca Hervida -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/sopa-de-res-gorda-barinas.jpg">
-                            <source src="video/video-yuca-hervida-llanera.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Yuca Hervida</h4></div>
-                </div>
-                <!-- 16. Guasacaca -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/picadillo-criollo-venezolano.jpg">
-                            <source src="video/video-guasacaca-salsa-criolla.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Guasacaca</h4></div>
-                </div>
-                <!-- 17. Tequeños -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/ceviche-mixto-barinas.jpg">
-                            <source src="video/video-tequenos-fritos.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Tequeños Fritos</h4></div>
-                </div>
-                <!-- 18. Empanadas -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/pabellon-criollo-venezolano.jpg">
-                            <source src="video/video-empanadas-pabellon.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Empanadas Pabellón</h4></div>
-                </div>
-                <!-- 19. Arepas Rellenas -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/arepa-cachapa-reina-pepiada.jpg">
-                            <source src="video/video-arepas-rellenas.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Arepas Rellenas</h4></div>
-                </div>
-                <!-- 20. Mojarras -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/mojarra-frita-mariscos.jpg">
-                            <source src="video/video-mojarras-asadas.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Mojarras Asadas</h4></div>
-                </div>
-                <!-- 21. Costilla BBQ -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/costilla-res-asada-carbon.jpg">
-                            <source src="video/video-costilla-bbq.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Costilla BBQ</h4></div>
-                </div>
-                <!-- 22. Evento Familiar -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/galeria-clientes-felices.jpg">
-                            <source src="video/video-evento-familiar-restaurante.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Evento Familiar</h4></div>
-                </div>
-                <!-- 23. Buffet Criollo -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/parrillada-mixta-2-personas.jpg">
-                            <source src="video/video-buffet-criollo-barinas.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Buffet Criollo</h4></div>
-                </div>
-                <!-- 24. Música Llanera -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/restaurante-cachamita-oro-portada.jpg">
-                            <source src="video/video-musica-llanera-en-vivo.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Música Llanera</h4></div>
-                </div>
-                <!-- 25. Terraza Vista -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/restaurante-cachamita-oro-portada.jpg">
-                            <source src="video/video-terraza-restaurante-vista.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Terraza Restaurante</h4></div>
-                </div>
-                <!-- 26. Delivery Moto -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/restaurante-cachamita-oro-portada.jpg">
-                            <source src="video/video-delivery-moto-barinas.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Delivery Moto</h4></div>
-                </div>
-                <!-- 27. Chef Cocinando -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/carne-asada-llanera-parrilla.jpg">
-                            <source src="video/video-chef-cocinando-parrilla.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Chef Cocinando</h4></div>
-                </div>
-                <!-- 28. Adobo Secreto -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/picadillo-criollo-venezolano.jpg">
-                            <source src="video/video-adobo-carne-secretos.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Adobo Secreto</h4></div>
-                </div>
-                <!-- 29. Limpieza Pescado -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/cachama-frita-dorada-entera.jpg">
-                            <source src="video/video-limpieza-pescado-cachama.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Limpieza Pescado</h4></div>
-                </div>
-                <!-- 30. Final Plato -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="images/plato-cachama-frita-gigante.jpg">
-                            <source src="video/video-final-plato-presentacion.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="video-info"><h4>Presentación Final</h4></div>
-                </div>
+                <!-- Videos generados con preload="none" para optimización -->
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cachama-frita-dorada-entera.jpeg"><source src="video/video-preparacion-cachama-frita.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Preparación Cachama Frita</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/carne-asada-llanera-parrilla.jpeg"><source src="video/video-carne-asada-al-carbon.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Carne Asada al Carbón</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cachapa-queso-mano-rellena.jpeg"><source src="video/video-haciendo-cachapas-llaneras.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Haciendo Cachapas</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/parrillada-mixta-2-personas.jpeg"><source src="video/video-parrillada-mixta-preparacion.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Parrillada Mixta</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/sopa-de-res-gorda-barinas.jpeg"><source src="video/video-sopa-de-res-guisando.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Sopa de Res Guisando</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/sopa-de-res-gorda-barinas.jpeg"><source src="video/video-sancocho-de-pescado.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Sancocho de Pescado</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cochino-frito-cachapa-queso.jpeg"><source src="video/video-cochino-frito-crujiente.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Cochino Frito Crujiente</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/pabellon-criollo-venezolano.jpeg"><source src="video/video-pabellon-criollo-receta.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Pabellón Criollo Receta</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/arepa-cachapa-reina-pepiada.jpeg"><source src="video/video-asado-negro-casero.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Asado Negro Casero</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cocktel-camaron-barinas.jpeg"><source src="video/video-mariscos-al-ajillo.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Mariscos al Ajillo</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-interior-restaurante-barinas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Interior Restaurante</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/galeria-clientes-felices.jpeg"><source src="video/video-cliente-probando-cachama.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Cliente Probando</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/ceviche-mixto-barinas.jpeg"><source src="video/video-ensalada-fresca-preparacion.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Ensalada Fresca</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/pabellon-criollo-venezolano.jpeg"><source src="video/video-tajadas-de-platano.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Tajadas de Plátano</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/sopa-de-res-gorda-barinas.jpeg"><source src="video/video-yuca-hervida-llanera.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Yuca Hervida</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/picadillo-criollo-venezolano.jpeg"><source src="video/video-guasacaca-salsa-criolla.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Guasacaca</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/ceviche-mixto-barinas.jpeg"><source src="video/video-tequenos-fritos.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Tequeños Fritos</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/pabellon-criollo-venezolano.jpeg"><source src="video/video-empanadas-pabellon.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Empanadas Pabellón</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/arepa-cachapa-reina-pepiada.jpeg"><source src="video/video-arepas-rellenas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Arepas Rellenas</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/mojarra-frita-mariscos.jpeg"><source src="video/video-mojarras-asadas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Mojarras Asadas</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/costilla-res-asada-carbon.jpeg"><source src="video/video-costilla-bbq.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Costilla BBQ</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/galeria-clientes-felices.jpeg"><source src="video/video-evento-familiar-restaurante.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Evento Familiar</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/parrillada-mixta-2-personas.jpeg"><source src="video/video-buffet-criollo-barinas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Buffet Criollo</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-musica-llanera-en-vivo.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Música Llanera</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-terraza-restaurante-vista.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Terraza Restaurante</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-delivery-moto-barinas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Delivery Moto</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/carne-asada-llanera-parrilla.jpeg"><source src="video/video-chef-cocinando-parrilla.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Chef Cocinando</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/picadillo-criollo-venezolano.jpeg"><source src="video/video-adobo-carne-secretos.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Adobo Secreto</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cachama-frita-dorada-entera.jpeg"><source src="video/video-limpieza-pescado-cachama.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Limpieza Pescado</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/plato-cachama-frita-gigante.jpeg"><source src="video/video-final-plato-presentacion.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Presentación Final</h4></div></div>
             </div>
         </div>
     </section>
 
-    <!-- LA CARNICERÍA (MOVIDA AQUÍ) -->
+    <!-- LA CARNICERÍA -->
     <section id="carniceria" style="background-color: #f4f4f4;">
         <div class="container">
             <div class="section-title">
@@ -849,24 +738,46 @@
                         <div class="list-item"><h4>Parrillada Completa</h4><p>Para 15-20 personas (Eventos)</p></div>
                     </div>
                     <div style="margin-top: 20px; text-align: center;">
-                        <img src="images/parrillada-mixta-2-personas.jpg" style="border-radius: 10px; width: 100%;" alt="Parrillada">
+                        <!-- .JPEG -->
+                        <img src="images/parrillada-mixta-2-personas.jpeg" style="border-radius: 10px; width: 100%;" alt="Parrillada">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERÍA FOTOGRÁFICA EXTRA -->
+    <!-- GALERÍA FOTOGRÁFICA COMPLETA -->
     <section id="galeria">
         <div class="container">
             <div class="section-title">
-                <h3>📸 Nuestro Ambiente y Clientes</h3>
+                <h3>📸 Galería Fotográfica Completa</h3>
+                <p>Nuestros platos, ambiente y detalles</p>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="images/equipo-restaurante-cachamita.jpg" alt="Equipo"></div>
-                <div class="gallery-item"><img src="images/galeria-comida-criolla-1.jpg" alt="Comida 1"></div>
-                <div class="gallery-item"><img src="images/galeria-clientes-felices.jpg" alt="Clientes"></div>
-                <div class="gallery-item"><img src="images/video-poster-cachama.jpg" alt="Ambiente"></div>
+                <!-- Imágenes principales existentes (.JPEG) -->
+                <div class="gallery-item"><img src="images/equipo-restaurante-cachamita.jpeg" loading="lazy" alt="Equipo"></div>
+                <div class="gallery-item"><img src="images/galeria-comida-criolla-1.jpeg" loading="lazy" alt="Comida 1"></div>
+                <div class="gallery-item"><img src="images/galeria-clientes-felices.jpeg" loading="lazy" alt="Clientes"></div>
+                <div class="gallery-item"><img src="images/video-poster-cachama.jpeg" loading="lazy" alt="Ambiente"></div>
+                
+                <!-- LISTA DE IMÁGENES SOLICITADA (.JPEG) -->
+                <div class="gallery-item"><img src="images/vacuno-porcino-carne-frita-asada-sopa-fiesta-caldo.jpeg" loading="lazy" alt="Galería 1"></div>
+                <div class="gallery-item"><img src="images/tu-cachapa-costilla-de-res-para-asar-mejores-carnes-para-la-parrilla.jpeg" loading="lazy" alt="Galería 2"></div>
+                <div class="gallery-item"><img src="images/sopa-menbu-caldo-sopa-de-res-picadillo-barinas.jpeg" loading="lazy" alt="Galería 3"></div>
+                <div class="gallery-item"><img src="images/sopa-de-res-caldos-apio-crema-de-ahullama-barinas-cachama-frita.jpeg" loading="lazy" alt="Galería 4"></div>
+                <div class="gallery-item"><img src="images/plkatano-frito-yuca-cochino-carne-asada-menu-criollo.jpeg" loading="lazy" alt="Galería 5"></div>
+                <div class="gallery-item"><img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" loading="lazy" alt="Logo"></div>
+                <div class="gallery-item"><img src="images/cocina-criolla-carne-meat-herencia-carne-asada-carnes-para-parrilla.jpeg" loading="lazy" alt="Galería 6"></div>
+                <div class="gallery-item"><img src="images/carne-para-asar-suave-arroz-yuca-esalada-queso-y-cochino-de-budare.jpeg" loading="lazy" alt="Galería 7"></div>
+                <div class="gallery-item"><img src="images/carne-de-res-asa-asada-asar-fritar-corner-invitar.jpeg" loading="lazy" alt="Galería 8"></div>
+                <div class="gallery-item"><img src="images/carne-asada-cachamita-de-oro-cachama-dorada.jpeg" loading="lazy" alt="Galería 9"></div>
+                <div class="gallery-item"><img src="images/cachapa-venezolana-cerca-de-mi-carne-asada-familiar-comida-grupos-barinas.jpeg" loading="lazy" alt="Galería 10"></div>
+                <div class="gallery-item"><img src="images/cachama-guisada-cachamita-de-oro-cachama-dorada-guisada-frita.jpeg" loading="lazy" alt="Galería 11"></div>
+                <div class="gallery-item"><img src="images/cachama-dorada-cachamita-de-oro-logo-cachapa-con-carne-asada.jpeg" loading="lazy" alt="Galería 12"></div>
+                <div class="gallery-item"><img src="images/bistec-para-asar-carne-asada-a-la-parrilla.jpeg" loading="lazy" alt="Galería 13"></div>
+                <div class="gallery-item"><img src="images/arepa-de-acachama-res-cochinoqueso-mantequilla-y-cachapa.jpeg" loading="lazy" alt="Galería 14"></div>
+                <div class="gallery-item"><img src="images/aguja-a-la-parrilla-asada-de-cedro-asada-de-res-para-asar-c.jpeg" loading="lazy" alt="Galería 15"></div>
+                <div class="gallery-item"><img src="images/aguacate-picada-parrilla-criolla-cachapa-express-venexolana-llanera.jpeg" loading="lazy" alt="Galería 16"></div>
             </div>
         </div>
     </section>
@@ -1081,6 +992,7 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-col text-center">
+                <!-- .JPEG -->
                 <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo Footer" class="footer-logo">
                 <p>Tradición Llanera desde el corazón de Barinas.</p>
             </div>
@@ -1109,6 +1021,23 @@
     </footer>
 
     <script>
+        // Funciones para el Chatbot Modal
+        function openChatbot() {
+            document.getElementById('chatbotModal').style.display = 'flex';
+        }
+
+        function closeChatbot() {
+            document.getElementById('chatbotModal').style.display = 'none';
+        }
+
+        // Cerrar al hacer clic fuera del contenido
+        window.onclick = function(event) {
+            const modal = document.getElementById('chatbotModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
         // Menú Móvil
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
