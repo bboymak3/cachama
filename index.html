@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Viewport corregido para evitar scroll lateral accidental -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>🥇 La Cachamita de Oro | Comida Criolla y Cachama Frita en Barinas</title>
     
     <!-- SEO -->
@@ -13,7 +14,6 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="🥇 La Cachamita de Oro - Tradición Llanera">
     <meta property="og:description" content="La mejor Cachama Frita y Carne Asada de Barinas. Ingredientes de alta calidad y menú completo.">
-    <!-- IMAGEN ESPECÍFICA EN .jpg SEGÚN SOLICITUD -->
     <meta property="og:image" content="images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg">
 
     <link rel="icon" type="image/jpeg" href="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
@@ -39,7 +39,8 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* PROTEGE CONTRA SCROLL HORIZONTAL */
+            width: 100vw;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -48,11 +49,12 @@
         video { max-width: 100%; height: auto; display: block; }
 
         /* --- UTILIDADES --- */
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; position: relative; }
         .text-center { text-align: center; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        /* Reducido minmax para móviles pequeños */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
 
         /* --- HEADER --- */
         header {
@@ -63,6 +65,7 @@
             top: 0;
             z-index: 1000;
             padding: 10px 0;
+            width: 100%;
         }
 
         .nav-container {
@@ -74,14 +77,14 @@
             align-items: center;
         }
 
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-img { height: 50px; width: auto; object-fit: contain; } 
-        .logo-text h1 { font-size: 0.9rem; color: var(--primary-color); line-height: 1.1; text-transform: uppercase; font-weight: 800; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; } 
+        .logo-text h1 { font-size: 0.8rem; color: var(--primary-color); line-height: 1.1; text-transform: uppercase; font-weight: 800; }
 
         .nav-menu { display: flex; gap: 10px; align-items: center; }
         .nav-link { font-weight: 600; color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; }
         .nav-link:hover { color: var(--primary-color); }
-        .btn-cta { background-color: var(--secondary-color); color: white; padding: 8px 15px; border-radius: 50px; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); white-space: nowrap; }
+        .btn-cta { background-color: var(--secondary-color); color: white; padding: 6px 12px; border-radius: 50px; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3); white-space: nowrap; font-size: 0.8rem; }
         .btn-cta:hover { background-color: #219150; transform: translateY(-2px); }
 
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
@@ -90,7 +93,7 @@
         /* --- HERO --- */
         .hero {
             position: relative;
-            height: 90vh;
+            height: 80vh;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg');
             background-size: cover;
             background-position: center;
@@ -100,16 +103,17 @@
             text-align: center;
             color: white;
             padding: 0 20px;
+            width: 100vw; /* Asegura ancho completo */
         }
-        .hero-content h2 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); animation: fadeInDown 1s ease-out; }
-        .hero-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 30px 0; font-size: 0.85rem; }
-        .hero-badge { background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
+        .hero-content h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 15px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); animation: fadeInDown 1s ease-out; }
+        .hero-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0; font-size: 0.75rem; }
+        .hero-badge { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 15px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
 
         /* --- SECCIONES GENERALES --- */
-        section { padding: 80px 0; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h3 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 10px; font-family: 'Georgia', serif; }
-        .section-subtitle { color: #666; font-size: 1.1rem; }
+        section { padding: 60px 0; overflow-x: hidden; } /* Previen desbordes */
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; font-family: 'Georgia', serif; }
+        .section-subtitle { color: #666; font-size: 1rem; }
 
         /* --- CARDS --- */
         .card {
@@ -117,71 +121,89 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s;
             border: 1px solid #eee;
             display: flex; flex-direction: column;
+            width: 100%; /* Asegura que no exceda el contenedor */
         }
         .card:hover { transform: translateY(-5px); }
-        .card-img { height: 200px; width: 100%; object-fit: cover; }
-        .card-body { padding: 20px; flex-grow: 1; }
-        .card-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; color: var(--primary-color); }
+        .card-img { height: 180px; width: 100%; object-fit: cover; }
+        .card-body { padding: 15px; flex-grow: 1; }
+        .card-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 8px; color: var(--primary-color); }
 
         /* --- LISTA DE ITEMS --- */
-        .item-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .list-item { background: #fff; padding: 15px; border-left: 4px solid var(--primary-color); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
-        .list-item h4 { color: var(--text-dark); margin-bottom: 5px; }
-        .list-item p { font-size: 0.9rem; color: #666; }
+        .item-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; }
+        .list-item { background: #fff; padding: 12px; border-left: 4px solid var(--primary-color); border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .list-item h4 { color: var(--text-dark); margin-bottom: 4px; font-size: 0.95rem; }
+        .list-item p { font-size: 0.85rem; color: #666; }
 
         /* --- GAstronomía (Textos Largos) --- */
-        .gastronomy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 30px; }
-        .gastronomy-card { background: white; padding: 30px; border-radius: 10px; border-top: 5px solid var(--accent-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%; }
-        .gastronomy-card h4 { font-size: 1.4rem; color: var(--primary-color); margin-bottom: 15px; text-transform: uppercase; font-family: 'Georgia', serif; }
-        .gastronomy-card p { font-size: 0.95rem; color: #555; text-align: justify; }
+        .gastronomy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
+        .gastronomy-card { background: white; padding: 20px; border-radius: 10px; border-top: 5px solid var(--accent-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%; }
+        .gastronomy-card h4 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 10px; text-transform: uppercase; font-family: 'Georgia', serif; }
+        .gastronomy-card p { font-size: 0.9rem; color: #555; text-align: justify; }
 
         /* --- DICCIONARIO --- */
-        .dict-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .dict-term { background: white; padding: 20px; border-radius: 10px; border-top: 4px solid var(--secondary-color); }
-        .dict-term h4 { color: var(--secondary-color); text-transform: uppercase; font-size: 0.9rem; margin-bottom: 5px; }
-        .dict-term strong { display: block; font-size: 1.1rem; margin-bottom: 5px; color: var(--text-dark); }
+        .dict-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        .dict-term { background: white; padding: 15px; border-radius: 10px; border-top: 4px solid var(--secondary-color); }
+        .dict-term h4 { color: var(--secondary-color); text-transform: uppercase; font-size: 0.8rem; margin-bottom: 5px; }
+        .dict-term strong { display: block; font-size: 1rem; margin-bottom: 5px; color: var(--text-dark); }
         .dict-term p { color: #555; }
 
-        /* --- GALERÍA DE VIDEOS (Responsive) --- */
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        /* --- GALERÍA DE VIDEOS --- */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
         .video-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
         .video-wrapper video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; }
-        .video-info { padding: 15px; }
-        .video-info h4 { font-size: 0.9rem; color: var(--text-dark); font-weight: bold; }
+        .video-info { padding: 10px; }
+        .video-info h4 { font-size: 0.85rem; color: var(--text-dark); font-weight: bold; }
 
         /* --- GALERÍA DE FOTOS (EXPANDIDA) --- */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
-        .gallery-item { border-radius: 10px; overflow: hidden; height: 220px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 180px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; }
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .gallery-item:hover img { transform: scale(1.15); }
+        .gallery-item:hover img { transform: scale(1.1); }
         .gallery-item::after {
-            content: '+';
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            color: white; font-size: 2rem; opacity: 0; transition: 0.3s; pointer-events: none; text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            content: '+'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            color: white; font-size: 1.5rem; opacity: 0; transition: 0.3s; pointer-events: none; text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
         .gallery-item:hover::after { opacity: 1; }
 
         /* --- CONTACTO & MAPA --- */
-        .contact-box { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .contact-box { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .map-responsive { overflow: hidden; padding-bottom: 56.25%; position: relative; height: 0; border-radius: 15px; }
         .map-responsive iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; border: 0; }
 
         /* --- FOOTER --- */
-        footer { background-color: #222; color: #fff; padding: 60px 0 20px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
-        .footer-col h4 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.2rem; }
-        .footer-logo { height: 80px; margin-bottom: 15px; object-fit: contain; }
+        footer { background-color: #222; color: #fff; padding: 40px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-col h4 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-logo { height: 60px; margin-bottom: 10px; object-fit: contain; }
         
-        /* --- BOTONES FLOTANTES (WHATSAPP Y CHATBOT) --- */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: transform 0.3s; }
-        .whatsapp-float:hover { transform: scale(1.1); }
+        /* --- BOTONES FLOTANTES CENTRADOS (SOLUCIÓN DEFINITIVA) --- */
+        .whatsapp-float { 
+            position: fixed; 
+            bottom: 15px; 
+            left: 50%; /* Centrado */
+            transform: translateX(-50%); /* Ajuste fino del centro */
+            background-color: #25d366; 
+            color: white; 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 30px; 
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
+            z-index: 990; 
+            transition: transform 0.3s; 
+        }
+        .whatsapp-float:hover { transform: translateX(-50%) scale(1.1); }
         
-        /* NUEVO BOTÓN CHATBOT - CLICK PARA MODAL */
+        /* CHATBOT ARRIBA DEL WHATSAPP, AMBOS CENTRADOS */
         .chatbot-float {
             position: fixed;
-            bottom: 100px;
-            right: 30px;
+            bottom: 85px; 
+            left: 50%; /* Centrado */
+            transform: translateX(-50%);
             background-color: #f1c40f;
             color: #2c3e50;
             width: 60px;
@@ -192,20 +214,17 @@
             align-items: center;
             font-size: 30px;
             box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
-            z-index: 999;
-            cursor: pointer; /* Cambiado a cursor pointer para indicar click */
+            z-index: 990;
+            cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
             animation: pulse-yellow 2s infinite;
         }
-        .chatbot-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(241, 196, 15, 0.8);
-        }
+        .chatbot-float:hover { transform: translateX(-50%) scale(1.1); }
 
         @keyframes pulse-yellow {
             0% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0.7); }
-            70% { box-shadow: 0 0 0 20px rgba(241, 196, 15, 0); }
+            70% { box-shadow: 0 0 0 15px rgba(241, 196, 15, 0); }
             100% { box-shadow: 0 0 0 0 rgba(241, 196, 15, 0); }
         }
 
@@ -213,20 +232,20 @@
         .chatbot-modal {
             display: none; 
             position: fixed; 
-            z-index: 3000; 
+            z-index: 2000; 
             left: 0; 
             top: 0; 
             width: 100%; 
             height: 100%; 
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0,0,0,0.7);
             justify-content: center; 
             align-items: center;
         }
 
         .chatbot-content {
             background-color: #fff;
-            width: 90%;
-            height: 90%;
+            width: 95%;
+            height: 85%;
             max-width: 600px;
             max-height: 800px;
             border-radius: 10px;
@@ -237,56 +256,59 @@
             flex-direction: column;
         }
 
-        .chatbot-content iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
+        .chatbot-content iframe { width: 100%; height: 100%; border: none; }
 
         .close-chatbot {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            color: #333;
-            font-size: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            z-index: 3001;
-            background: rgba(255,255,255,0.8);
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
-            text-align: center;
+            position: absolute; top: 5px; right: 10px; color: #333; font-size: 25px; font-weight: bold; cursor: pointer; z-index: 3001;
+            background: rgba(255,255,255,0.9); border-radius: 50%; width: 25px; height: 25px; line-height: 25px; text-align: center;
         }
         .close-chatbot:hover { background: #fff; color: #d35400; }
 
         /* LIGHTBOX (IMÁGENES) */
         .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; flex-direction: column; }
         .lightbox.active { display: flex; animation: fadeIn 0.3s; }
-        .lightbox img { max-width: 90%; max-height: 80vh; border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
-        .close-lightbox { color: white; font-size: 40px; cursor: pointer; position: absolute; top: 20px; right: 30px; }
+        .lightbox img { max-width: 95%; max-height: 80vh; border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
+        .close-lightbox { color: white; font-size: 40px; cursor: pointer; position: absolute; top: 20px; right: 20px; z-index: 2002; }
 
         /* --- ANIMACIONES --- */
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+        /* --- MEDIA QUERIES MÓVILES --- */
         @media (max-width: 768px) {
+            /* Espacio vital para botones centrados */
+            body { padding-bottom: 100px; }
+            
             .hamburger { display: flex; }
-            .nav-menu { position: fixed; top: 0; right: -100%; width: 80%; height: 100vh; background-color: white; flex-direction: column; padding: 60px 20px; box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: 0.4s ease; z-index: 1000; }
+            .nav-menu { 
+                position: fixed; 
+                top: 0; 
+                right: -100%; 
+                width: 85%; 
+                height: 100vh; 
+                background-color: white; 
+                flex-direction: column; 
+                padding: 80px 20px 20px; 
+                box-shadow: -5px 0 15px rgba(0,0,0,0.2); 
+                transition: 0.4s ease; 
+                z-index: 1005; 
+                overflow-y: auto;
+            }
             .nav-menu.active { right: 0; }
-            .grid-2, .grid-4 { grid-template-columns: 1fr; }
-            .hero-content h2 { font-size: 2.2rem; }
+            .grid-2, .grid-4 { grid-template-columns: 1fr; gap: 20px; }
+            .hero-content h2 { font-size: 1.8rem; }
             .nav-menu { gap: 20px; }
             
-            /* Ajustes para móviles muy pequeños */
+            /* Ajustes botones en móviles pequeños */
+            .chatbot-float { width: 50px; height: 50px; font-size: 22px; bottom: 70px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 22px; bottom: 10px; }
             .chatbot-content { width: 95%; height: 80%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MODAL DEL CHATBOT (Se abre en la misma ventana) -->
+    <!-- MODAL DEL CHATBOT -->
     <div id="chatbotModal" class="chatbot-modal">
         <div class="chatbot-content">
             <span class="close-chatbot" onclick="closeChatbot()">&times;</span>
@@ -294,10 +316,10 @@
         </div>
     </div>
 
-    <!-- BOTÓN CHATBOT (AMARILLO BRILLANTE) -->
+    <!-- BOTÓN CHATBOT CENTRADO -->
     <div class="chatbot-float" onclick="openChatbot()" title="Asistente Virtual">🤖</div>
 
-    <!-- BOTÓN WHATSAPP -->
+    <!-- BOTÓN WHATSAPP CENTRADO -->
     <a href="https://wa.me/584264562796?text=Hola,%20quiero%20pedir%20en%20La%20Cachamita%20de%20Oro" class="whatsapp-float" target="_blank">💬</a>
 
     <div class="lightbox" id="lightbox"><span class="close-lightbox">&times;</span><img id="lightbox-img" src="" alt="Vista Ampliada"></div>
@@ -305,7 +327,6 @@
     <header>
         <div class="nav-container">
             <div class="logo-area">
-                <!-- EXTENSIÓN .JPEG -->
                 <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>🥇 LA CACHAMITA<br>DE ORO 🟢</h1>
@@ -331,24 +352,24 @@
     <section id="inicio" class="hero">
         <div class="hero-content">
             <h2>El Sabor del Llano en tu Mesa</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 20px;">#1 en Comida Criolla y Cachama Frita en Barinas - Tradición Llanera</p>
+            <p style="font-size: 1rem; margin-bottom: 15px;">#1 en Comida Criolla y Cachama Frita en Barinas - Tradición Llanera</p>
             
             <div class="hero-features">
                 <div class="hero-badge">✅ Wi-Fi Gratuito</div>
                 <div class="hero-badge">✅ Asientos al Aire Libre</div>
-                <div class="hero-badge">✅ Restaurante con Terraza Barinas</div>
+                <div class="hero-badge">✅ Restaurante con Terraza</div>
                 <div class="hero-badge">✅ Estacionamiento</div>
             </div>
 
-            <div style="margin-top: 30px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="#menu" class="btn-cta" style="background: var(--primary-color);">🍽️ Explorar Menú</a>
-                <a href="https://wa.me/584264562796" class="btn-cta">🛵 Pedir Delivery</a>
-                <a href="#contacto" class="btn-cta" style="background: var(--accent-color); color: black;">📅 Reservar</a>
+            <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="#menu" class="btn-cta" style="background: var(--primary-color); font-size: 0.9rem;">🍽️ Explorar Menú</a>
+                <a href="https://wa.me/584264562796" class="btn-cta" style="font-size: 0.9rem;">🛵 Pedir Delivery</a>
+                <a href="#contacto" class="btn-cta" style="background: var(--accent-color); color: black; font-size: 0.9rem;">📅 Reservar</a>
             </div>
         </div>
     </section>
 
-    <!-- 1. LA CACHAMA (TEXTO LARGO) -->
+    <!-- 1. LA CACHAMA -->
     <section id="cachama">
         <div class="container">
             <div class="section-title">
@@ -357,199 +378,87 @@
             
             <div class="grid-2">
                 <div>
-                    <!-- .JPEG -->
                     <img src="images/plato-cachama-frita-gigante.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachama Grande">
                 </div>
                 <div style="text-align: left;">
-                    <h2 style="color: var(--primary-color); margin-bottom: 15px;">"CACHAMA DORADA DE ORO" - El Plato Emblemático de Barinas</h2>
+                    <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">"CACHAMA DORADA DE ORO"</h2>
                     <p style="font-weight: bold; color: var(--text-dark);">🌟 NUESTRA ESPECIALIDAD ABSOLUTA</p>
-                    <p style="margin-bottom: 15px;">En La Cachamita de Oro hemos perfeccionado el arte de preparar la cachama frita hasta convertirla en una verdadera joya culinaria. Nuestra Cachama Dorada no es simplemente un plato, es una experiencia gastronómica que captura la esencia misma de la comida criolla venezolana con el toque único de la tradición llanera de Barinas.</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro hemos perfeccionado el arte de preparar la cachama frita hasta convertirla en una verdadera joya culinaria. Nuestra Cachama Dorada no es simplemente un plato, es una experiencia gastronómica.</p>
                     
                     <p style="font-weight: bold; color: var(--text-dark);">🍽️ DESCRIPCIÓN DEL PLATO</p>
-                    <p style="margin-bottom: 15px;">Imagina un pescado entero, fresco del río, con una piel tan crujiente que suena al cortarla, y una carne blanca, jugosa y deshebrada que se desprende con suavidad. Así es nuestra Cachama Dorada, el plato que nos dio nuestro nombre y que se ha convertido en el favorito de quienes buscan comida criolla cerca de mi ubicación en Barinas.</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Imagina un pescado entero, fresco del río, con una piel tan crujiente que suena al cortarla, y una carne blanca, jugosa y deshebrada que se desprende con suavidad. Así es nuestra Cachama Dorada.</p>
 
                     <p style="font-weight: bold; color: var(--text-dark);">🎯 INGREDIENTES SELECTOS:</p>
-                    <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 15px;">
-                        <li><strong>Proteína Principal:</strong> Cachama fresca (1.5-2 kg) - Pescado de río criado localmente.</li>
+                    <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 15px; font-size: 0.85rem;">
+                        <li><strong>Proteína Principal:</strong> Cachama fresca (1.5-2 kg).</li>
                         <li><strong>Marinado secreto:</strong> Mezcla de 12 especias llaneras.</li>
                         <li><strong>Para la Fritura Perfecta:</strong> Aceite vegetal premium a temperatura controlada (180°C).</li>
-                        <li><strong>Harina de maíz artesanal:</strong> Para el rebozado ligero.</li>
                         <li><strong>Acompañamientos:</strong> Tajadas, Arroz, Ensalada, Guasacaca y Limón.</li>
                     </ul>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">👨🍳 PREPARACIÓN TRADICIONAL:</p>
-                    <p style="margin-bottom: 15px;">Nuestros chefs llaneros siguen un ritual de tres etapas: Limpieza y marinado por 2 horas con especias secretas, Rebozado ligero con harina de maíz y Fritura en punto exacto hasta lograr el dorado perfecto.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🔥 ¿POR QUÉ ES ESPECIAL NUESTRA CACHAMA DORADA?</p>
-                    <p>1. <strong>ORIGEN GARANTIZADO:</strong> Usamos exclusivamente cachama de criaderos locales de Barinas, alimentada naturalmente.<br>
-                    2. <strong>TÉCNICA PERFECTA:</strong> La fritura a 180°C crea una piel extremadamente crujiente mientras mantiene la carne jugosa.<br>
-                    3. <strong>PRESENTACIÓN ESPECTACULAR:</strong> Servida entera en una tabla de madera, decorada con tajadas doradas y guasacaca.<br>
-                    4. <strong>SABOR ÚNICO:</strong> El equilibrio perfecto entre lo crujiente de la piel, lo jugoso de la carne y el toque especial de nuestro marinado.</p>
-
-                    <p style="margin-top: 20px; background: #eef; padding: 10px; border-radius: 5px; font-style: italic;">
-                        "La Cachama Dorada de La Cachamita de Oro no es solo nuestro plato estrella, es un símbolo de la gastronomía llanera. ¡Ven y descubre por qué somos La Cachamita de Oro! 🐟✨"
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 2. CACHAPA VENEZOLANA (NUEVO) -->
+    <!-- 2. CACHAPA VENEZOLANA -->
     <section id="cachapa">
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <!-- .JPEG -->
                     <img src="images/cachapa-queso-mano-rellena.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachapa Venezolana">
                 </div>
                 <div style="text-align: left;">
-                    <h2 style="color: var(--primary-color); margin-bottom: 15px;">🌽 CACHAPA VENEZOLANA LLANERA - El Sabor del Maíz en tu Paladar</h2>
+                    <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🌽 CACHAPA VENEZOLANA LLANERA</h2>
                     <p style="font-weight: bold; color: var(--text-dark);">🌽 NUESTRA TRADICIÓN DORADA</p>
-                    <p style="margin-bottom: 15px;">En La Cachamita de Oro rescatamos la auténtica esencia de la cachapa venezolana, ese manjar llanero que combina la dulzura natural del maíz con la cremosidad única del queso de mano. No es solo un acompañamiento, es una experiencia gastronómica que define la comida criolla barinesa en su máxima expresión.</p>
-                    
-                    <p style="font-weight: bold; color: var(--text-dark);">🍽️ DESCRIPCIÓN DEL PLATO</p>
-                    <p style="margin-bottom: 15px;">Imagina una tortilla dorada de maíz tierno, ligeramente dulce, con ese aroma característico que solo el budare caliente puede darle, rellena de queso de mano que se derrite al contacto. Así es nuestra Cachapa Venezolana Llanera, el acompañamiento perfecto o plato principal que buscas cuando piensas en comida criolla cerca de mi ubicación en Barinas.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🎯 INGREDIENTES SELECTOS:</p>
-                    <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 15px;">
-                        <li><strong>Base de Maíz:</strong> Maíz tierno molido fresco - Cultivado en los campos de Barinas.</li>
-                        <li><strong>Rellenos Tradicionales:</strong> Queso de mano llanero, Cochino frito crujiente, Pollo guisado criollo, Carne mechada.</li>
-                        <li><strong>Acompañamientos:</strong> Mantequilla derretida, Natilla criolla casera, Guasacaca llanera.</li>
-                    </ul>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">👨🍳 PREPARACIÓN TRADICIONAL:</p>
-                    <p style="margin-bottom: 15px;">Nuestras cocineras mantienen viva la tradición: Molienda del maíz en piedra, Mezcla y reposo de la masa, Cocción en budare y Relleno al instante con queso derritiéndose.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🔥 ¿POR QUÉ ES ESPECIAL NUESTRA CACHAPA?</p>
-                    <p>1. <strong>MAÍZ 100% NATURAL:</strong> Usamos exclusivamente maíz tierno de cultivos locales, nunca enlatado.<br>
-                    2. <strong>QUESO DE MANO AUTÉNTICO:</strong> Nuestro queso proviene de queserías artesanales de la región.<br>
-                    3. <strong>TÉCNICA PERFECTA:</strong> Cocción en budare de hierro heredado de generaciones.<br>
-                    4. <strong>VERSATILIDAD ÚNICA:</strong> Desde la clásica con queso hasta la rellena de cochino frito.</p>
-
-                    <p style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">📍 VARIEDADES DISPONIBLES:</p>
-                    <p>Clásicas: Cachapa con Queso, Cachapa con Cochino Frito, Cachapa Reina Pepiada.<br>Especiales: Cachapa Llanera Completa, Cachapa Mixta, "Tu Cachapa" Personalizada.</p>
-                    <p style="margin-top: 15px; background: #fff3cd; padding: 10px; border-radius: 5px;"><strong>📞 ¿CÓMO PEDIR?</strong> La Caramuca 5201, Barinas | 📱 0426-4562796. Disponible en local y a domicilio.</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro rescatamos la auténtica esencia de la cachapa venezolana, ese manjar llanero que combina la dulzura natural del maíz con la cremosidad única del queso de mano.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. CARNE ASADA (NUEVO) -->
+    <!-- 3. CARNE ASADA -->
     <section id="carne-asada">
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <!-- .JPEG -->
                     <img src="images/carne-asada-llanera-parrilla.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Carne Asada Llanera">
                 </div>
                 <div style="text-align: left;">
-                    <h2 style="color: var(--primary-color); margin-bottom: 15px;">🥩 CARNE ASADA LLANERA - La Tradición del Asado en Barinas</h2>
+                    <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🥩 CARNE ASADA LLANERA</h2>
                     <p style="font-weight: bold; color: var(--text-dark);">🥩 EL REY DE LA PARRILLA</p>
-                    <p style="margin-bottom: 15px;">En La Cachamita de Oro dominamos el arte ancestral de la carne asada llanera, esa técnica que transforma los mejores cortes en una experiencia jugosa, ahumada y llena de sabor. No es simplemente carne a la parrilla, es la esencia misma de la comida criolla barinesa en su versión más auténtica.</p>
-                    
-                    <p style="font-weight: bold; color: var(--text-dark);">🍽️ DESCRIPCIÓN DEL PLATO</p>
-                    <p style="margin-bottom: 15px;">Visualiza un corte premium de carne de res, marinado por horas con especias secretas, asado lentamente sobre carbón vegetal hasta alcanzar ese punto perfecto donde la costra exterior está caramelizada y el interior conserva su jugosidad. Así es nuestra Carne Asada Llanera, el plato que buscas cuando anhelas la auténtica parrillada de carne en Barinas.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🎯 INGREDIENTES SELECTOS:</p>
-                    <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 15px;">
-                        <li><strong>Cortes Premium:</strong> Carne Ranchera, Arrachera, Costilla de Res, Punta Trasera.</li>
-                        <li><strong>Marinado Secreto:</strong> Hierbas llaneras frescas, Ajo y cebolla molida, Especias de la región, Cerveza llanera.</li>
-                        <li><strong>Acompañamientos:</strong> Yuca hervida con mojo, Arepas asadas, Ensalada criolla, Guasacaca.</li>
-                    </ul>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">👨🍳 PREPARACIÓN TRADICIONAL:</p>
-                    <p style="margin-bottom: 15px;">Nuestros parrilleros son maestros del fuego: Selección y marinado de 12 horas mínimo, Preparación del carbón con madera de guayabo, Asado lento y Reposo para redistribución de jugos.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🔥 ¿POR QUÉ ES ESPECIAL NUESTRA CARNE ASADA?</p>
-                    <p>1. <strong>CORTES SELECCIONADOS:</strong> Trabajamos directamente con ganaderos de Barinas.<br>
-                    2. <strong>TÉCNICA LLANERA PURA:</strong> Usamos carbón vegetal, no gas, logrando sabor ahumado inigualable.<br>
-                    3. <strong>MARINADO SECRETO:</strong> Mezcla de especias transmitida por generaciones.<br>
-                    4. <strong>PUNTO PERFECTO:</strong> Cada corte se sirve en su punto exacto.</p>
-
-                    <p style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">📍 VARIEDADES DISPONIBLES:</p>
-                    <p>Individuales: Carne Asada Tradicional, Arrachera Especial, Costilla BBQ.<br>Para compartir: Parrillada Llanera (2-3 pers), Asado Familiar (4-6 pers), Paquete Carnívoro.</p>
-                    <p style="margin-top: 15px; background: #fff3cd; padding: 10px; border-radius: 5px;"><strong>📞 ¿CÓMO PEDIR?</strong> La Caramuca 5201, Barinas | 📱 0426-4562796. Parrilladas disponibles todos los días.</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro dominamos el arte ancestral de la carne asada llanera, esa técnica que transforma los mejores cortes en una experiencia jugosa, ahumada y llena de sabor.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. COCHINO FRITO (NUEVO) -->
+    <!-- 4. COCHINO FRITO -->
     <section id="cochino-frito">
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <!-- .JPEG -->
                     <img src="images/cochino-frito-cachapa-queso.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cochino Frito">
                 </div>
                 <div style="text-align: left;">
-                    <h2 style="color: var(--primary-color); margin-bottom: 15px;">🐷 COCHINO FRITO VENEZOLANO - La Crujiente Delicia Criolla</h2>
+                    <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🐷 COCHINO FRITO VENEZOLANO</h2>
                     <p style="font-weight: bold; color: var(--text-dark);">🐷 LA TRADICIÓN DORADA</p>
-                    <p style="margin-bottom: 15px;">En La Cachamita de Oro rescatamos la técnica ancestral del cochino frito venezolano, ese plato que combina la jugosidad de la carne de cerdo con una piel tan crujiente que se convierte en experiencia sensorial. No es simplemente cerdo frito, es patrimonio de la gastronomía criolla de Barinas.</p>
-                    
-                    <p style="font-weight: bold; color: var(--text-dark);">🍽️ DESCRIPCIÓN DEL PLATO</p>
-                    <p style="margin-bottom: 15px;">Imagina trozos generosos de cerdo, marinados en hierbas locales, fritos a la temperatura perfecta hasta lograr esa piel dorada que cruje al primer bocado, mientras la carne interior permanece jugosa y llena de sabor. Así es nuestro Cochino Frito Venezolano, el plato que define la comida criolla con carne en su máxima expresión.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🎯 INGREDIENTES SELECTOS:</p>
-                    <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 15px;">
-                        <li><strong>Carne de Calidad:</strong> Cerdo fresco de granjas locales, Panceta con piel, Pierna deshuesada, Costillas.</li>
-                        <li><strong>Marinado Tradicional:</strong> Naranja agria, Ajo machacado, Comino y orégano, Cilantro fresco.</li>
-                        <li><strong>Para la Fritura:</strong> Aceite vegetal a temperatura controlada, Sal gruesa.</li>
-                        <li><strong>Acompañamientos:</strong> Tajadas, Arepitas fritas, Yuca frita, Guasacaca picante.</li>
-                    </ul>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">👨🍳 PREPARACIÓN TRADICIONAL:</p>
-                    <p style="margin-bottom: 15px;">Proceso artesanal en 4 etapas: Corte y limpieza, Marinado prolongado (24h), Secado natural para piel crujiente y Doble fritura técnica secreta.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🔥 ¿POR QUÉ ES ESPECIAL NUESTRO COCHINO FRITO?</p>
-                    <p>1. <strong>CERDO LOCAL GARANTIZADO:</strong> Sin hormonas, alimentación natural.<br>
-                    2. <strong>TÉCNICA DE DOBLE FRITURA:</strong> Piel extremadamente crujiente sin quemarse.<br>
-                    3. <strong>MARINADO DE 24 HORAS:</strong> Sabores penetran hasta el hueso.<br>
-                    4. <strong>EQUILIBRIO PERFECTO:</strong> Crujiente por fuera, jugoso por dentro.</p>
-
-                    <p style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">📍 VARIEDADES DISPONIBLES:</p>
-                    <p>Individuales: Cochino Frito Clásico, Costillas fritas, Panceta Crujiente.<br>Para compartir: Tabla de Cochino Frito (2-3 pers), Combo Familiar, Mega Porción.<br>Combos Especiales: Cochino + Cachapa, Combo Llanero.</p>
-                    <p style="margin-top: 15px; background: #fff3cd; padding: 10px; border-radius: 5px;"><strong>📞 ¿CÓMO PEDIR?</strong> La Caramuca 5201, Barinas | 📱 0426-4562796. Disponible todo el día.</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro rescatamos la técnica ancestral del cochino frito venezolano, ese plato que combina la jugosidad de la carne de cerdo con una piel tan crujiente que se convierte en experiencia sensorial.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. MARISQUERÍA (NUEVO) -->
+    <!-- 5. MARISQUERÍA -->
     <section id="marisqueria">
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <!-- .JPEG -->
                     <img src="images/cocktel-camaron-barinas.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Marisquería Criolla">
                 </div>
                 <div style="text-align: left;">
-                    <h2 style="color: var(--primary-color); margin-bottom: 15px;">🦐 MARISQUERÍA CRIOLLA - Frescura del Mar en el Llano</h2>
+                    <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🦐 MARISQUERÍA CRIOLLA</h2>
                     <p style="font-weight: bold; color: var(--text-dark);">🦐 EL SABOR DEL MAR EN BARINAS</p>
-                    <p style="margin-bottom: 15px;">En La Cachamita de Oro desafiamos la geografía para traer lo mejor del mar a la mesa llanera. Nuestra marisquería criolla combina la frescura de pescados y mariscos con las técnicas y sabores de la cocina venezolana, creando platos únicos donde el llano se encuentra con el océano.</p>
-                    
-                    <p style="font-weight: bold; color: var(--text-dark);">🍽️ DESCRIPCIÓN DE NUESTRA MARISQUERÍA</p>
-                    <p style="margin-bottom: 15px;">Imagina camarones gigantes salteados al ajillo, pescados frescos a la plancha con salsa criolla, calamares tiernos en su tinta, y mezclas de mariscos que explotan sabor en cada bocado. Así es nuestra propuesta de marisquería, la alternativa perfecta cuando buscas pescados y mariscos en Barinas con sazón local.</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🎯 INGREDIENTES SELECTOS:</p>
-                    <ul style="list-style-type: disc; padding-left: 20px; margin-bottom: 15px;">
-                        <li><strong>Pescados Frescos:</strong> Corvina, Mero, Pargo, Salmonetes.</li>
-                        <li><strong>Mariscos Premium:</strong> Camarones grandes, Calamares frescos, Mejillones, Pulpo.</li>
-                        <li><strong>Salsas:</strong> Al ajillo tradicional, A la plancha criolla, En salsa marinera, Al coco.</li>
-                    </ul>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">👨🍳 PREPARACIÓN ESPECIALIZADA:</p>
-                    <p style="margin-bottom: 15px;">Selección diaria, Limpieza profesional sin arenas, Cocción precisa y Sazonado criollo (el toque llanero).</p>
-
-                    <p style="font-weight: bold; color: var(--text-dark);">🔥 ¿POR QUÉ ES ESPECIAL NUESTRA MARISQUERÍA?</p>
-                    <p>1. <strong>FRESCURA GARANTIZADA:</strong> Recibimos pescados y mariscos diariamente.<br>
-                    2. <strong>TÉCNICAS HÍBRIDAS:</strong> Método tradicional con sazón criolla.<br>
-                    3. <strong>VARIEDAD CONSTANTE:</strong> Menú rota según disponibilidad.<br>
-                    4. <strong>PARA TODOS LOS GUSTOS:</strong> Desde simples hasta elaborados.</p>
-
-                    <p style="margin-top: 20px; font-weight: bold; color: var(--primary-color);">📍 PLATOS ESTRELLA:</p>
-                    <p>Pescados: Pescado a la Plancha Criolla, Filete de Corvina al Ajillo, Pargo Entero Frito.<br>Mariscos: Camarones al Ajillo, Calamares en su Tinta, Mejillones a la Marinera.<br>Combinados: Mariscada Criolla, Paella Llanera, Cazuela de Mariscos.</p>
-                    <p style="margin-top: 15px; background: #fff3cd; padding: 10px; border-radius: 5px;"><strong>📞 ¿CÓMO PEDIR TU MARISCADA?</strong> La Caramuca 5201, Barinas | 📱 0426-4562796. Pescados y mariscos frescos todos los días.</p>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro desafiamos la geografía para traer lo mejor del mar a la mesa llanera. Nuestra marisquería criolla combina la frescura de pescados y mariscos con las técnicas y sabores de la cocina venezolana.</p>
                 </div>
             </div>
         </div>
@@ -560,37 +469,27 @@
         <div class="container">
             <div class="section-title">
                 <h3 style="color: var(--secondary-color);">🌿 Ingredientes de la Más Alta Calidad</h3>
-                <p class="section-subtitle">El secreto está en la materia prima local</p>
-            </div>
-            <div class="text-center" style="max-width: 800px; margin: 0 auto 50px;">
-                <p style="font-size: 1.15rem; color: #444; font-weight: 500;">
-                    Seleccionamos cuidadosamente cada producto. Desde el pescado fresco de río hasta las carnes premium de nuestros llanos. Nuestros vegetales y especias son 100% locales, garantizando frescura y ese sabor auténtico que nos distingue en Barinas.
-                </p>
             </div>
             <div class="grid-4 text-center">
-                <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <!-- .JPEG -->
-                    <img src="images/pescado-envuelto-tostones.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Pescado">
-                    <h4 style="color:var(--text-dark);">Pescado Fresco</h4>
-                    <p style="font-size: 0.85rem; color: #777;">De río, diario</p>
+                <div style="padding: 10px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="images/pescado-envuelto-tostones.jpeg" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin: 0 auto 5px;" alt="Pescado">
+                    <h4 style="color:var(--text-dark); font-size: 0.9rem;">Pescado Fresco</h4>
+                    <p style="font-size: 0.75rem; color: #777;">De río, diario</p>
                 </div>
-                <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <!-- .JPEG -->
-                    <img src="images/costilla-res-asada-carbon.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Carne">
-                    <h4 style="color:var(--text-dark);">Carnes Premium</h4>
-                    <p style="font-size: 0.85rem; color: #777;">Corte selecto</p>
+                <div style="padding: 10px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="images/costilla-res-asada-carbon.jpeg" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin: 0 auto 5px;" alt="Carne">
+                    <h4 style="color:var(--text-dark); font-size: 0.9rem;">Carnes Premium</h4>
+                    <p style="font-size: 0.75rem; color: #777;">Corte selecto</p>
                 </div>
-                <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <!-- .JPEG -->
-                    <img src="images/cachapa-queso-mano-rellena.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Maiz">
-                    <h4 style="color:var(--text-dark);">Maíz Criollo</h4>
-                    <p style="font-size: 0.85rem; color: #777;">100% Natural</p>
+                <div style="padding: 10px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="images/cachapa-queso-mano-rellena.jpeg" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin: 0 auto 5px;" alt="Maiz">
+                    <h4 style="color:var(--text-dark); font-size: 0.9rem;">Maíz Criollo</h4>
+                    <p style="font-size: 0.75rem; color: #777;">100% Natural</p>
                 </div>
-                <div style="padding: 15px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                    <!-- .JPEG -->
-                    <img src="images/picadillo-criollo-venezolano.jpeg" style="width: 60px; height: 60px; object-fit: cover; border-radius: 50%; margin: 0 auto 10px;" alt="Especias">
-                    <h4 style="color:var(--text-dark);">Especias</h4>
-                    <p style="font-size: 0.85rem; color: #777;">Aromáticas locales</p>
+                <div style="padding: 10px; background: white; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+                    <img src="images/picadillo-criollo-venezolano.jpeg" style="width: 50px; height: 50px; object-fit: cover; border-radius: 50%; margin: 0 auto 5px;" alt="Especias">
+                    <h4 style="color:var(--text-dark); font-size: 0.9rem;">Especias</h4>
+                    <p style="font-size: 0.75rem; color: #777;">Aromáticas</p>
                 </div>
             </div>
         </div>
@@ -604,108 +503,75 @@
                 <p>La mejor parrillada criolla Barinas y más</p>
             </div>
 
-            <h4 style="color: var(--secondary-color); margin: 30px 0 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">ENTRADAS CRIOLLAS</h4>
+            <h4 style="color: var(--secondary-color); margin: 20px 0 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; font-size: 1.1rem;">ENTRADAS CRIOLLAS</h4>
             <div class="grid-4">
-                <div class="list-item"><h4>Tequeños Tradicionales</h4><p>Queso blanco llanero</p></div>
-                <div class="list-item"><h4>Arepitas Fritas</h4><p>Crujientes y doradas</p></div>
-                <div class="list-item"><h4>Empanadas de Pabellón</h4><p>Carne mechada y caraotas</p></div>
-                <div class="list-item"><h4>Cachapitas</h4><p>Con queso de mano</p></div>
+                <div class="list-item"><h4>Tequeños</h4><p>Queso blanco</p></div>
+                <div class="list-item"><h4>Arepitas</h4><p>Crujientes</p></div>
+                <div class="list-item"><h4>Empanadas</h4><p>Pabellón</p></div>
+                <div class="list-item"><h4>Cachapitas</h4><p>Con queso</p></div>
             </div>
 
-            <h4 style="color: var(--secondary-color); margin: 40px 0 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">DEL RÍO Y EL MAR</h4>
+            <h4 style="color: var(--secondary-color); margin: 30px 0 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; font-size: 1.1rem;">DEL RÍO Y EL MAR</h4>
             <div class="grid-3">
                 <div class="card">
-                    <!-- .JPEG -->
-                    <img src="images/ceviche-mixto-barinas.jpeg" class="card-img" alt="Combinado Mariscos">
-                    <div class="card-body"><h4 class="card-title">Ceviche Mixto</h4><p>Marisquería familiar Barinas</p></div>
+                    <img src="images/ceviche-mixto-barinas.jpeg" class="card-img" alt="Ceviche">
+                    <div class="card-body"><h4 class="card-title">Ceviche Mixto</h4><p>Marisquería familiar</p></div>
                 </div>
                 <div class="card">
-                    <!-- .JPEG -->
                     <img src="images/cocktel-camaron-barinas.jpeg" class="card-img" alt="Camarones">
-                    <div class="card-body"><h4 class="card-title">Camarones al Ajillo</h4><p>Salteados con vino blanco</p></div>
+                    <div class="card-body"><h4 class="card-title">Camarones</h4><p>Salteados</p></div>
                 </div>
                 <div class="card">
-                    <!-- .JPEG -->
-                    <img src="images/mojarra-frita-mariscos.jpeg" class="card-img" alt="Pescado Plancha">
-                    <div class="card-body"><h4 class="card-title">Pescado a la Plancha</h4><p>Filete de corvina</p></div>
+                    <img src="images/mojarra-frita-mariscos.jpeg" class="card-img" alt="Pescado">
+                    <div class="card-body"><h4 class="card-title">Pescado Plancha</h4><p>Filete de corvina</p></div>
                 </div>
             </div>
 
-            <h4 style="color: var(--secondary-color); margin: 40px 0 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">DE LA PARRILLA Y HORNO</h4>
+            <h4 style="color: var(--secondary-color); margin: 30px 0 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; font-size: 1.1rem;">DE LA PARRILLA</h4>
             <div class="grid-3">
                 <div class="card">
-                    <!-- .JPEG -->
-                    <img src="images/carne-asada-llanera-parrilla.jpeg" class="card-img" alt="Carne Asada">
-                    <div class="card-body"><h4 class="card-title">Carne Asada Llanera</h4><p>Porción generosa completa</p></div>
+                    <img src="images/carne-asada-llanera-parrilla.jpeg" class="card-img" alt="Carne">
+                    <div class="card-body"><h4 class="card-title">Carne Asada</h4><p>Jugosa completa</p></div>
                 </div>
                 <div class="card">
-                    <!-- .JPEG -->
-                    <img src="images/costilla-res-asada-carbon.jpeg" class="card-img" alt="Costilla BBQ">
+                    <img src="images/costilla-res-asada-carbon.jpeg" class="card-img" alt="Costilla">
                     <div class="card-body"><h4 class="card-title">Costilla BBQ</h4><p>Estilo americano</p></div>
                 </div>
                 <div class="card">
-                    <!-- .JPEG -->
-                    <img src="images/cochino-frito-cachapa-queso.jpeg" class="card-img" alt="Parrillada">
-                    <div class="card-body"><h4 class="card-title">Cochino Frito</h4><p>Crujiente tradicional</p></div>
+                    <img src="images/cochino-frito-cachapa-queso.jpeg" class="card-img" alt="Cochino">
+                    <div class="card-body"><h4 class="card-title">Cochino Frito</h4><p>Crujiente</p></div>
                 </div>
             </div>
 
-            <h4 style="color: var(--secondary-color); margin: 40px 0 15px; border-bottom: 2px solid #eee; padding-bottom: 10px;">PLATOS CRIOLLOS EMBLEMÁTICOS</h4>
+            <h4 style="color: var(--secondary-color); margin: 30px 0 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; font-size: 1.1rem;">PLATOS EMBLEMÁTICOS</h4>
             <div class="grid-2">
-                <div class="card" style="display:flex; align-items:center; padding: 10px;">
-                    <!-- .JPEG -->
-                    <img src="images/pabellon-criollo-venezolano.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;" alt="Pabellon">
-                    <div style="padding: 20px;"><h4 class="card-title">Pabellón Criollo Auténtico</h4><p>La bandera venezolana: carne, caraotas, arroz y tajadas.</p></div>
+                <div class="card" style="display:flex; align-items:center; padding: 5px;">
+                    <img src="images/pabellon-criollo-venezolano.jpeg" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px;" alt="Pabellon">
+                    <div style="padding: 15px;"><h4 class="card-title">Pabellón Criollo</h4><p style="font-size: 0.9rem;">Carne, caraotas, arroz y tajadas.</p></div>
                 </div>
-                <div class="card" style="display:flex; align-items:center; padding: 10px;">
-                    <!-- .JPEG -->
-                    <img src="images/arepa-cachapa-reina-pepiada.jpeg" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px;" alt="Plato Típico">
-                    <div style="padding: 20px;"><h4 class="card-title">Asado Negro</h4><p>Carne de res en salsa oscura de papelón y especias. Tradición de domingo.</p></div>
+                <div class="card" style="display:flex; align-items:center; padding: 5px;">
+                    <img src="images/arepa-cachapa-reina-pepiada.jpeg" style="width: 120px; height: 120px; object-fit: cover; border-radius: 10px;" alt="Plato">
+                    <div style="padding: 15px;"><h4 class="card-title">Asado Negro</h4><p style="font-size: 0.9rem;">Carne en salsa oscura. Tradición.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERÍA DE VIDEOS (LISTA COMPLETA) -->
+    <!-- GALERÍA DE VIDEOS -->
     <section id="videos" style="background-color: #f0f4f8;">
         <div class="container">
             <div class="section-title">
-                <h3 style="color: var(--primary-color);">🎬 Galería Completa de Videos</h3>
-                <p>Descubre nuestra cocina, ambiente y preparaciones</p>
+                <h3 style="color: var(--primary-color); font-size: 1.8rem;">🎬 Galería de Videos</h3>
             </div>
 
             <div class="video-grid">
-                <!-- Videos generados con preload="none" para optimización -->
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cachama-frita-dorada-entera.jpeg"><source src="video/video-preparacion-cachama-frita.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Preparación Cachama Frita</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/carne-asada-llanera-parrilla.jpeg"><source src="video/video-carne-asada-al-carbon.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Carne Asada al Carbón</h4></div></div>
+                <!-- Videos con post .jpeg -->
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cachama-frita-dorada-entera.jpeg"><source src="video/video-preparacion-cachama-frita.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Preparación Cachama</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/carne-asada-llanera-parrilla.jpeg"><source src="video/video-carne-asada-al-carbon.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Carne Asada</h4></div></div>
                 <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cachapa-queso-mano-rellena.jpeg"><source src="video/video-haciendo-cachapas-llaneras.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Haciendo Cachapas</h4></div></div>
                 <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/parrillada-mixta-2-personas.jpeg"><source src="video/video-parrillada-mixta-preparacion.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Parrillada Mixta</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/sopa-de-res-gorda-barinas.jpeg"><source src="video/video-sopa-de-res-guisando.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Sopa de Res Guisando</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/sopa-de-res-gorda-barinas.jpeg"><source src="video/video-sancocho-de-pescado.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Sancocho de Pescado</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cochino-frito-cachapa-queso.jpeg"><source src="video/video-cochino-frito-crujiente.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Cochino Frito Crujiente</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/pabellon-criollo-venezolano.jpeg"><source src="video/video-pabellon-criollo-receta.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Pabellón Criollo Receta</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/arepa-cachapa-reina-pepiada.jpeg"><source src="video/video-asado-negro-casero.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Asado Negro Casero</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cocktel-camaron-barinas.jpeg"><source src="video/video-mariscos-al-ajillo.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Mariscos al Ajillo</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-interior-restaurante-barinas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Interior Restaurante</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/galeria-clientes-felices.jpeg"><source src="video/video-cliente-probando-cachama.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Cliente Probando</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/ceviche-mixto-barinas.jpeg"><source src="video/video-ensalada-fresca-preparacion.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Ensalada Fresca</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/pabellon-criollo-venezolano.jpeg"><source src="video/video-tajadas-de-platano.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Tajadas de Plátano</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/sopa-de-res-gorda-barinas.jpeg"><source src="video/video-yuca-hervida-llanera.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Yuca Hervida</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/picadillo-criollo-venezolano.jpeg"><source src="video/video-guasacaca-salsa-criolla.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Guasacaca</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/ceviche-mixto-barinas.jpeg"><source src="video/video-tequenos-fritos.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Tequeños Fritos</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/pabellon-criollo-venezolano.jpeg"><source src="video/video-empanadas-pabellon.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Empanadas Pabellón</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/arepa-cachapa-reina-pepiada.jpeg"><source src="video/video-arepas-rellenas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Arepas Rellenas</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/mojarra-frita-mariscos.jpeg"><source src="video/video-mojarras-asadas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Mojarras Asadas</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/costilla-res-asada-carbon.jpeg"><source src="video/video-costilla-bbq.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Costilla BBQ</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/galeria-clientes-felices.jpeg"><source src="video/video-evento-familiar-restaurante.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Evento Familiar</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/parrillada-mixta-2-personas.jpeg"><source src="video/video-buffet-criollo-barinas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Buffet Criollo</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-musica-llanera-en-vivo.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Música Llanera</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-terraza-restaurante-vista.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Terraza Restaurante</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-delivery-moto-barinas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Delivery Moto</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/carne-asada-llanera-parrilla.jpeg"><source src="video/video-chef-cocinando-parrilla.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Chef Cocinando</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/picadillo-criollo-venezolano.jpeg"><source src="video/video-adobo-carne-secretos.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Adobo Secreto</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/cachama-frita-dorada-entera.jpeg"><source src="video/video-limpieza-pescado-cachama.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Limpieza Pescado</h4></div></div>
-                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/plato-cachama-frita-gigante.jpeg"><source src="video/video-final-plato-presentacion.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Presentación Final</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/restaurante-cachamita-oro-portada.jpeg"><source src="video/video-interior-restaurante-barinas.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Interior Rest.</h4></div></div>
+                <div class="video-card"><div class="video-wrapper"><video controls preload="none" poster="images/galeria-clientes-felices.jpeg"><source src="video/video-cliente-probando-cachama.mp4" type="video/mp4"></video></div><div class="video-info"><h4>Clientes Felices</h4></div></div>
             </div>
         </div>
     </section>
@@ -714,195 +580,70 @@
     <section id="carniceria" style="background-color: #f4f4f4;">
         <div class="container">
             <div class="section-title">
-                <h3>🥩 La Carnicería - Cortes Premium</h3>
-                <p>Lleva la calidad de nuestra parrilla a tu casa</p>
+                <h3>🥩 La Carnicería</h3>
+                <p>Cortes Premium</p>
             </div>
-            
             <div class="grid-2">
                 <div>
-                    <h4 style="color: var(--primary-color); margin-bottom: 20px; text-transform: uppercase;">Cortes de Res Estrella</h4>
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px; text-transform: uppercase; font-size: 1rem;">Cortes de Res</h4>
                     <div class="item-list">
-                        <div class="list-item"><h4>Carne Ranchera</h4><p>El corte tradicional llanero para asar</p></div>
-                        <div class="list-item"><h4>Arrachera</h4><p>Jugosa y perfecta para la parrilla</p></div>
-                        <div class="list-item"><h4>Costilla de Res</h4><p>Con hueso, llena de sabor</p></div>
-                        <div class="list-item"><h4>Aguja Norteña</h4><p>Ternura y jugosidad garantizada</p></div>
-                        <div class="list-item"><h4>Sirloin</h4><p>Corte premium de máxima calidad</p></div>
+                        <div class="list-item"><h4>Carne Ranchera</h4><p>Para asar</p></div>
+                        <div class="list-item"><h4>Arrachera</h4><p>Jugosa</p></div>
+                        <div class="list-item"><h4>Costilla</h4><p>Con hueso</p></div>
                     </div>
                 </div>
                 <div>
-                    <h4 style="color: var(--primary-color); margin-bottom: 20px; text-transform: uppercase;">Cortes de Cerdo y Paquetes</h4>
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px; text-transform: uppercase; font-size: 1rem;">Cortes de Cerdo</h4>
                     <div class="item-list">
-                        <div class="list-item"><h4>Cochino Frito</h4><p>Tradición crujiente y dorada</p></div>
-                        <div class="list-item"><h4>Cochinillo Asado</h4><p>Especial para ocasiones</p></div>
-                        <div class="list-item"><h4>Paquete 10 Pers.</h4><p>Variedad de cortes seleccionados</p></div>
-                        <div class="list-item"><h4>Parrillada Completa</h4><p>Para 15-20 personas (Eventos)</p></div>
-                    </div>
-                    <div style="margin-top: 20px; text-align: center;">
-                        <!-- .JPEG -->
-                        <img src="images/parrillada-mixta-2-personas.jpeg" style="border-radius: 10px; width: 100%;" alt="Parrillada">
+                        <div class="list-item"><h4>Cochino Frito</h4><p>Crujiente</p></div>
+                        <div class="list-item"><h4>Parrillada</h4><p>Eventos</p></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GALERÍA FOTOGRÁFICA COMPLETA -->
+    <!-- GALERÍA FOTOGRÁFICA -->
     <section id="galeria">
         <div class="container">
             <div class="section-title">
-                <h3>📸 Galería Fotográfica Completa</h3>
-                <p>Nuestros platos, ambiente y detalles</p>
+                <h3>📸 Galería Fotográfica</h3>
+                <p>Nuestros platos y ambiente</p>
             </div>
             <div class="gallery-grid">
-                <!-- Imágenes principales existentes (.JPEG) -->
                 <div class="gallery-item"><img src="images/equipo-restaurante-cachamita.jpeg" loading="lazy" alt="Equipo"></div>
-                <div class="gallery-item"><img src="images/galeria-comida-criolla-1.jpeg" loading="lazy" alt="Comida 1"></div>
+                <div class="gallery-item"><img src="images/galeria-comida-criolla-1.jpeg" loading="lazy" alt="Comida"></div>
                 <div class="gallery-item"><img src="images/galeria-clientes-felices.jpeg" loading="lazy" alt="Clientes"></div>
-                <div class="gallery-item"><img src="images/video-poster-cachama.jpeg" loading="lazy" alt="Ambiente"></div>
-                
-                <!-- LISTA DE IMÁGENES SOLICITADA (.JPEG) -->
-                <div class="gallery-item"><img src="images/vacuno-porcino-carne-frita-asada-sopa-fiesta-caldo.jpeg" loading="lazy" alt="Galería 1"></div>
-                <div class="gallery-item"><img src="images/tu-cachapa-costilla-de-res-para-asar-mejores-carnes-para-la-parrilla.jpeg" loading="lazy" alt="Galería 2"></div>
-                <div class="gallery-item"><img src="images/sopa-menbu-caldo-sopa-de-res-picadillo-barinas.jpeg" loading="lazy" alt="Galería 3"></div>
-                <div class="gallery-item"><img src="images/sopa-de-res-caldos-apio-crema-de-ahullama-barinas-cachama-frita.jpeg" loading="lazy" alt="Galería 4"></div>
-                <div class="gallery-item"><img src="images/plkatano-frito-yuca-cochino-carne-asada-menu-criollo.jpeg" loading="lazy" alt="Galería 5"></div>
-                <div class="gallery-item"><img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" loading="lazy" alt="Logo"></div>
-                <div class="gallery-item"><img src="images/cocina-criolla-carne-meat-herencia-carne-asada-carnes-para-parrilla.jpeg" loading="lazy" alt="Galería 6"></div>
-                <div class="gallery-item"><img src="images/carne-para-asar-suave-arroz-yuca-esalada-queso-y-cochino-de-budare.jpeg" loading="lazy" alt="Galería 7"></div>
-                <div class="gallery-item"><img src="images/carne-de-res-asa-asada-asar-fritar-corner-invitar.jpeg" loading="lazy" alt="Galería 8"></div>
-                <div class="gallery-item"><img src="images/carne-asada-cachamita-de-oro-cachama-dorada.jpeg" loading="lazy" alt="Galería 9"></div>
-                <div class="gallery-item"><img src="images/cachapa-venezolana-cerca-de-mi-carne-asada-familiar-comida-grupos-barinas.jpeg" loading="lazy" alt="Galería 10"></div>
-                <div class="gallery-item"><img src="images/cachama-guisada-cachamita-de-oro-cachama-dorada-guisada-frita.jpeg" loading="lazy" alt="Galería 11"></div>
-                <div class="gallery-item"><img src="images/cachama-dorada-cachamita-de-oro-logo-cachapa-con-carne-asada.jpeg" loading="lazy" alt="Galería 12"></div>
-                <div class="gallery-item"><img src="images/bistec-para-asar-carne-asada-a-la-parrilla.jpeg" loading="lazy" alt="Galería 13"></div>
-                <div class="gallery-item"><img src="images/arepa-de-acachama-res-cochinoqueso-mantequilla-y-cachapa.jpeg" loading="lazy" alt="Galería 14"></div>
-                <div class="gallery-item"><img src="images/aguja-a-la-parrilla-asada-de-cedro-asada-de-res-para-asar-c.jpeg" loading="lazy" alt="Galería 15"></div>
-                <div class="gallery-item"><img src="images/aguacate-picada-parrilla-criolla-cachapa-express-venexolana-llanera.jpeg" loading="lazy" alt="Galería 16"></div>
+                <div class="gallery-item"><img src="images/vacuno-porcino-carne-frita-asada-sopa-fiesta-caldo.jpeg" loading="lazy" alt="Galería"></div>
+                <div class="gallery-item"><img src="images/cocina-criolla-carne-meat-herencia-carne-asada-carnes-para-parrilla.jpeg" loading="lazy" alt="Cocina"></div>
+                <div class="gallery-item"><img src="images/carne-asada-cachamita-de-oro-cachama-dorada.jpeg" loading="lazy" alt="Carne"></div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN: TEXTOS DESCRIPTIVOS DE CATEGORÍAS (SEO & CONTENIDO) -->
+    <!-- SECCIÓN: TEXTOS DESCRIPTIVOS -->
     <section id="gastronomia" style="background-color: #f9f9f9;">
         <div class="container">
             <div class="section-title">
-                <h3>📖 Nuestra Gastronomía en Detalle</h3>
-                <p>Descubre la historia y sabor detrás de cada uno de nuestros platos</p>
+                <h3>📖 Nuestra Gastronomía</h3>
             </div>
 
             <div class="gastronomy-grid">
-                <!-- 1. Comida Criolla Barinas -->
                 <div class="gastronomy-card">
-                    <h4>Comida Criolla en Barinas</h4>
-                    <p>En el corazón de los llanos venezolanos, la comida criolla no es solo alimento, es un ritual de identidad. En Barinas, nuestros platos reflejan la generosidad de la tierra y el río. La cocina criolla que servimos en La Cachamita de Oro se distingue por el uso intensivo de vegetales de la huerta local, como la yuca, el plátano y la auyama, combinados con carnes y pescados de primera. Es una cocina que se comparte, que se vive en familia y que despierta los recuerdos de la abuela.</p>
+                    <h4>Comida Criolla Barinas</h4>
+                    <p>En el corazón de los llanos venezolanos, la comida criolla no es solo alimento, es un ritual de identidad. En Barinas, nuestros platos reflejan la generosidad de la tierra y el río.</p>
                 </div>
-
-                <!-- 2. Carne Asada Barinas -->
                 <div class="gastronomy-card">
-                    <h4>Carne Asada en Barinas</h4>
-                    <p>La carne asada en Barinas es una institución. No hablamos simplemente de poner carne al fuego, sino de un evento social donde el carbón y la carne se fusionan para crear una experiencia inolvidable. En nuestro restaurante, ofrecemos los mejores cortes: desde la jugosa aguja norteña hasta la imponente costilla. El secreto radica en el "sazonado llanero", una mezcla de especias que penetra la fibra antes de tocar la parrilla.</p>
+                    <h4>Carne Asada Barinas</h4>
+                    <p>La carne asada en Barinas es una institución. No hablamos simplemente de poner carne al fuego, sino de un evento social donde el carbón y la carne se fusionan.</p>
                 </div>
-
-                <!-- 3. Cachapa Venezolana Barinas -->
                 <div class="gastronomy-card">
-                    <h4>Cachapa Venezolana en Barinas</h4>
-                    <p>La cachapa es la dulce reina de nuestra mesa. Hecha con maíz tierno molido en piedra, nuestra cachapa venezolana en Barinas es una especialidad que brilla por sí sola. Su textura esponjosa y húmeda, combinada con la cremosidad del queso de mano fresco, crea un contraste de sabores irresistible. Es el acompañamiento perfecto para cualquier carne asada o un plato principal delicioso por sí solo.</p>
+                    <h4>Cachapa Venezolana</h4>
+                    <p>La cachapa es la dulce reina de nuestra mesa. Hecha con maíz tierno molido en piedra, nuestra cachapa venezolana en Barinas es una especialidad que brilla por sí sola.</p>
                 </div>
-
-                <!-- 4. Restaurante La Cachamita de Oro -->
                 <div class="gastronomy-card">
-                    <h4>Restaurante La Cachamita de Oro</h4>
-                    <p>Más que un local, somos un referente de la tradición gastronómica en La Caramuca. Restaurante La Cachamita de Oro se ha consolidado como el destino preferido para quienes buscan autenticidad y calidad. Nuestro compromiso va más allá de servir comida; buscamos crear memorias. Desde nuestra decoración que evoca el campo llanero hasta el servicio atento y cálido.</p>
-                </div>
-
-                <!-- 5. Comida Criolla Cerca de Mí -->
-                <div class="gastronomy-card">
-                    <h4>Comida Criolla Cerca de Mí</h4>
-                    <p>Sabemos que el antojo de un buen sancocho o una carne mechada no espera. Por eso, hemos facilitado que encuentres comida criolla cerca de tu ubicación. Con nuestra ubicación estratégica en La Caramuca y nuestro eficiente servicio de delivery, acortamos las distancias entre tus deseos gastronómicos y tu mesa.</p>
-                </div>
-
-                <!-- 6. Cachamita de Oro -->
-                <div class="gastronomy-card">
-                    <h4>Cachamita de Oro</h4>
-                    <p>"Cachamita de Oro" es más que un apodo, es nuestra marca de excelencia. Representa la búsqueda incansable de la perfección en cada plato que servimos, especialmente en nuestra estrella: la cachama. Este nombre resume nuestra filosofía: usar ingredientes dorados por el sol o el fuego, y transformarlos en tesoros culinarios.</p>
-                </div>
-
-                <!-- 7. Cochino Frito Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Cochino Frito en Barinas</h4>
-                    <p>El cochino frito es una tentación imposible de resistir. En Barinas, este plato se prepara con un respeto absoluto por la tradición: trozos de cerdo marinados, adobados y fritos hasta alcanzar un dorado perfecto que protege la jugosidad interior. La piel crujiente es el sello distintivo que tanto gusta a nuestros clientes.</p>
-                </div>
-
-                <!-- 8. Parrillada Criolla Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Parrillada Criolla en Barinas</h4>
-                    <p>Para los amantes del asado, la parrillada criolla es la opción definitiva. Imagina una tabla repleta de los mejores cortes de res, cerdo y pollo, todos asados al punto exacto sobre carbón vegetal. En Barinas, la parrillada es sinónimo de celebración y reuniones. En La Cachamita de Oro, armamos parrilladas pensadas para compartir.</p>
-                </div>
-
-                <!-- 9. Marisquería Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Marisquería en Barinas</h4>
-                    <p>Aunque somos famosos por nuestra cachama de río, nuestra marisquería también brilla con luz propia. Entendemos que en Barinas se ama el pescado, por lo que ofrecemos una selección de frutos del mar frescos que viajan directamente hasta nuestra cocina. Desde camarones al ajillo hasta mojarras fritas y ceviches refrescantes.</p>
-                </div>
-
-                <!-- 10. Carne Asada a Domicilio Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Carne Asada a Domicilio en Barinas</h4>
-                    <p>Disfrutar de una carne asada en la comodidad de tu hogar es un lujo que ponemos a tu alcance. Nuestro servicio de carne asada a domicilio en Barinas está diseñado para preservar la calidad del plato hasta el último momento. Utilizamos envases térmicos especiales que mantienen el calor y el jugo de la carne.</p>
-                </div>
-
-                <!-- 11. Dónde Comer Cachama Frita -->
-                <div class="gastronomy-card">
-                    <h4>Dónde Comer Cachama Frita</h4>
-                    <p>Si te preguntas "dónde comer cachama frita" y encontrar verdadera calidad, la respuesta es simple: La Cachamita de Oro. Hemos perfeccionado este plato hasta convertirlo en una leyenda local. No solo servimos pescado, servimos la experiencia completa: el ambiente, el servicio y los acompañamientos que elevan la cachama de un simple plato a un banquete.</p>
-                </div>
-
-                <!-- 12. La Caramuca Restaurante -->
-                <div class="gastronomy-card">
-                    <h4>La Caramuca Restaurante</h4>
-                    <p>Ubicarnos en La Caramuca es orgullo para nosotros. Esta zona de Barinas es conocida por su calidez y su gente, valores que reflejamos en nuestro servicio. "La Caramuca restaurante" es una dirección que evoca buen comer y ambiente familiar. Hemos creado un espacio que se integra con la comunidad.</p>
-                </div>
-
-                <!-- 13. Cachapa con Queso Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Cachapa con Queso en Barinas</h4>
-                    <p>El dúo clásico por excelencia. En Barinas, la cachapa con queso se respeta. Utilizamos únicamente queso de mano fresco, ese queso suave, ligeramente salado y lleno de crema que se derrama sobre la cachapa caliente. El contraste entre el maíz dulce y el queso salado es la base de nuestra gastronomía.</p>
-                </div>
-
-                <!-- 14. Comida Criolla Delivery Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Comida Criolla Delivery en Barinas</h4>
-                    <p>El ritmo de vida actual exige soluciones rápidas sin sacrificar calidad. Nuestro servicio de comida criolla delivery en Barinas cumple con esa misión. Llevamos el completo sabor de nuestros guisados, carnes y sopas directamente a tu hogar u oficina. El proceso es simple: ordenas, preparamos con dedicación y un repartidor eficiente te la entrega caliente.</p>
-                </div>
-
-                <!-- 15. Buffet Criollo Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Buffet Criollo en Barinas</h4>
-                    <p>Para eventos grandes, bodas o celebraciones empresariales, nuestro buffet criollo es la elección ganadora. Ofrecemos una variedad extensa de platos que satisfacen todos los gustos: desde parrillas mixtas y sancochos hasta ensaladas frescas y postres caseros. Organizar un buffet criollo en Barinas con nosotros garantiza éxito.</p>
-                </div>
-
-                <!-- 16. Cena Criolla Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Cena Criolla en Barinas</h4>
-                    <p>La noche cobra vida con nuestra cena criolla. Cuando cae el sol, nuestro restaurante se ilumina con el brillo de las velas y el calidez de la comida recién hecha. La cena criolla en Barinas es un momento para relajarse y disfrutar de platos contundentes y reconfortantes como el asado negro o un buen pabellón.</p>
-                </div>
-
-                <!-- 17. Mejor Carne Asada Barinas -->
-                <div class="gastronomy-card">
-                    <h4>La Mejor Carne Asada en Barinas</h4>
-                    <p>Nos atrevemos a decirlo: servimos la mejor carne asada en Barinas. ¿Por qué? Porque controlamos todo el proceso, desde la selección de la ganadería hasta el corte en nuestra propia carnicería. Nuestros carniceros expertos saben exactamente qué corte necesita cada cliente para obtener la máxima jugosidad y sabor.</p>
-                </div>
-
-                <!-- 18. Restaurante Llanero Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Restaurante Llanero en Barinas</h4>
-                    <p>El concepto de "Restaurante Llanero" va más allá de la comida; es una atmósfera. En nuestro local, sentirás la música, verás la decoración y respirar el aire de los llanos. Hemos recreado un espacio que rinde homenaje a nuestras raíces. Ven a vivir la tradición en el Restaurante Llanero por excelencia en Barinas.</p>
-                </div>
-
-                <!-- 19. Pescados y Mariscos Barinas -->
-                <div class="gastronomy-card">
-                    <h4>Pescados y Mariscos en Barinas</h4>
-                    <p>Aunque la cachama es la reina, nuestro reino gastronómico es vasto. Ofrecemos una amplia variedad de pescados y mariscos que enriquecen nuestra carta. Entendemos que la diversidad es clave para el paladar moderno. Por ello, integramos productos del mar con nuestras salsas criollas, creando fusiones deliciosas que sorprenden a comensales.</p>
+                    <h4>Cochino Frito</h4>
+                    <p>El cochino frito es una tentación imposible de resistir. En Barinas, este plato se prepara con un respeto absoluto por la tradición.</p>
                 </div>
             </div>
         </div>
@@ -912,39 +653,28 @@
     <section id="diccionario" style="background-color: #222; color: #fff;">
         <div class="container">
             <div class="section-title">
-                <h3 style="color: var(--accent-color);">📜 Diccionario del Sabor Llanero</h3>
-                <p style="color: #bbb;">Ingredientes, Técnicas y Tradiciones</p>
+                <h3 style="color: var(--accent-color);">📜 Diccionario del Sabor</h3>
             </div>
             <div class="dict-grid">
                 <div class="dict-term">
-                    <h4>Proteína Principal</h4>
+                    <h4>Proteína</h4>
                     <strong>Cachama</strong>
-                    <p>Pescado de agua dulce nativo, carne blanca, firme y de sabor suave.</p>
+                    <p>Pescado de agua dulce nativo, carne blanca.</p>
                 </div>
                 <div class="dict-term">
-                    <h4>Corte Especial</h4>
+                    <h4>Corte</h4>
                     <strong>Carne Ranchera</strong>
-                    <p>Corte de res específico para asar, proveniente del lomo, con buen marmoleo.</p>
+                    <p>Corte de res específico para asar.</p>
                 </div>
                 <div class="dict-term">
                     <h4>Acompañamiento</h4>
                     <strong>Queso de Mano</strong>
-                    <p>Queso fresco llanero, semi-blando, esencial para cachapas.</p>
+                    <p>Queso fresco llanero, semi-blando.</p>
                 </div>
                 <div class="dict-term">
-                    <h4>Plato Emblemático</h4>
+                    <h4>Plato</h4>
                     <strong>Pabellón Criollo</strong>
-                    <p>Carne mechada, caraotas negras, arroz blanco y tajadas. La bandera nacional.</p>
-                </div>
-                <div class="dict-term">
-                    <h4>Técnica</h4>
-                    <strong>Asado a la Parrilla</strong>
-                    <p>Cocción directa sobre fuego de carbón para lograr sabor ahumado.</p>
-                </div>
-                <div class="dict-term">
-                    <h4>Base</h4>
-                    <strong>Sofrito</strong>
-                    <p>Alma de la cocina criolla: cebolla, ajo, ají dulce y pimentón salteado.</p>
+                    <p>Carne, caraotas, arroz y tajadas.</p>
                 </div>
             </div>
         </div>
@@ -954,31 +684,20 @@
     <section id="contacto">
         <div class="container">
             <div class="section-title">
-                <h3>📍 Información Completa</h3>
-                <p>La Caramuca 5201, Barinas, Estado Barinas</p>
+                <h3>📍 Información</h3>
+                <p>La Caramuca 5201, Barinas</p>
             </div>
             
             <div class="grid-2">
                 <div class="contact-box">
-                    <h4 style="color: var(--primary-color); margin-bottom: 20px;">Datos y Ubicación</h4>
-                    <p><strong>Dirección exacta Barinas:</strong> La Caramuca 5201.</p>
-                    <p style="margin-bottom: 15px;"><em>Frente a la redoma principal. A 10 min del centro.</em></p>
+                    <h4 style="color: var(--primary-color); margin-bottom: 15px;">Datos</h4>
                     <p><strong>Teléfono:</strong> 0426-4562796</p>
                     <p><strong>Email:</strong> contacto@cachamitadeorobarinas.com.ve</p>
-                    
-                    <h5 style="margin-top: 20px; margin-bottom: 10px;">Horarios:</h5>
-                    <ul style="font-size: 0.9rem;">
+                    <h5 style="margin-top: 15px; margin-bottom: 10px;">Horarios:</h5>
+                    <ul style="font-size: 0.85rem;">
                         <li>Lun - Jue: 11:00 AM - 9:00 PM</li>
                         <li>Vie - Sáb: 11:00 AM - 10:00 PM</li>
-                        <li>Dom - Feriados: 11:00 AM - 8:00 PM</li>
-                    </ul>
-
-                    <h5 style="margin-top: 20px; margin-bottom: 10px;">Servicios y Eventos:</h5>
-                    <ul style="font-size: 0.9rem; color: #555;">
-                        <li>✅ Eventos familiares Barinas y Catering criollo</li>
-                        <li>✅ Reservas recomendadas (24h antes)</li>
-                        <li>✅ Estacionamiento gratuito y vigilado</li>
-                        <li>✅ Pagos: Efectivo, Tarjetas, Pago Móvil</li>
+                        <li>Dom: 11:00 AM - 8:00 PM</li>
                     </ul>
                 </div>
 
@@ -992,50 +711,32 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-col text-center">
-                <!-- .JPEG -->
-                <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo Footer" class="footer-logo">
-                <p>Tradición Llanera desde el corazón de Barinas.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Redes Sociales</h4>
-                <ul>
-                    <li>Facebook: /LaCachamitaDeOroBarinas</li>
-                    <li>Instagram: @cachamitadeoro_barinas</li>
-                    <li>TikTok: @lacachamitadeorobarinas</li>
-                </ul>
+                <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="footer-logo">
+                <p style="font-size: 0.9rem;">Tradición Llanera.</p>
             </div>
             <div class="footer-col">
                 <h4>Enlaces</h4>
-                <ul>
+                <ul style="font-size: 0.9rem;">
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#menu">Menú Completo</a></li>
+                    <li><a href="#menu">Menú</a></li>
                     <li><a href="#videos">Videos</a></li>
                     <li><a href="#galeria">Galería</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
         </div>
-        <div class="text-center" style="border-top: 1px solid #333; padding-top: 20px; font-size: 0.8rem; color: #888;">
-            <p>&copy; 2023 Restaurante La Cachamita de Oro. Todos los derechos reservados. | Restaurante llanero tradicional en Venezuela llanera.</p>
+        <div class="text-center" style="border-top: 1px solid #333; padding-top: 15px; font-size: 0.7rem; color: #888;">
+            <p>&copy; 2023 Restaurante La Cachamita de Oro.</p>
         </div>
     </footer>
 
     <script>
-        // Funciones para el Chatbot Modal
-        function openChatbot() {
-            document.getElementById('chatbotModal').style.display = 'flex';
-        }
-
-        function closeChatbot() {
-            document.getElementById('chatbotModal').style.display = 'none';
-        }
-
-        // Cerrar al hacer clic fuera del contenido
+        // Chatbot
+        function openChatbot() { document.getElementById('chatbotModal').style.display = 'flex'; }
+        function closeChatbot() { document.getElementById('chatbotModal').style.display = 'none'; }
         window.onclick = function(event) {
             const modal = document.getElementById('chatbotModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+            if (event.target == modal) modal.style.display = "none";
         }
 
         // Menú Móvil
@@ -1045,7 +746,7 @@
         hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
         navLinks.forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
 
-        // Lightbox (Simple)
+        // Lightbox
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const images = document.querySelectorAll('.card-img, .gallery-item img'); 
