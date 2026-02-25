@@ -16,7 +16,60 @@
     <meta property="og:description" content="La mejor Cachama Frita y Carne Asada de Barinas. Ingredientes de alta calidad y menú completo.">
     <meta property="og:image" content="images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg">
 
+    <!-- LOGO MANTENIDO IGUAL COMO SOLICITASTE -->
     <link rel="icon" type="image/jpeg" href="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+
+    <!-- SCHEMA MARKUP PARA SEO LOCAL (Recomendación Técnica) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "La Cachamita de Oro",
+      "image": [
+        "images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg",
+        "images/cachamafrita-comida-en-barinas-cachamita-de-oro.jpeg"
+       ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "La Caramuca",
+        "addressLocality": "Barinas",
+        "addressRegion": "Barinas",
+        "postalCode": "5201",
+        "addressCountry": "VE"
+      },
+      "priceRange": "$$",
+      "telephone": "+584264562796",
+      "servesCuisine": "Venezuelan, Barbecue, Seafood",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "11:00",
+          "closes": "21:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "11:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "11:00",
+          "closes": "20:00"
+        }
+      ]
+    }
+    </script>
 
     <style>
         /* --- ESTILOS BASE --- */
@@ -39,7 +92,7 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden; /* PROTEGE CONTRA SCROLL HORIZONTAL */
+            overflow-x: hidden;
             width: 100vw;
         }
 
@@ -53,7 +106,7 @@
         .text-center { text-align: center; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
         /* Reducido minmax para móviles pequeños */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
 
         /* --- HEADER --- */
@@ -103,29 +156,42 @@
             text-align: center;
             color: white;
             padding: 0 20px;
-            width: 100vw; /* Asegura ancho completo */
+            width: 100vw;
         }
         .hero-content h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 15px; text-shadow: 0 4px 10px rgba(0,0,0,0.5); animation: fadeInDown 1s ease-out; }
         .hero-features { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 20px 0; font-size: 0.75rem; }
         .hero-badge { background: rgba(255,255,255,0.2); padding: 4px 10px; border-radius: 15px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3); }
 
         /* --- SECCIONES GENERALES --- */
-        section { padding: 60px 0; overflow-x: hidden; } /* Previene desbordes */
+        section { padding: 60px 0; overflow-x: hidden; }
         .section-title { text-align: center; margin-bottom: 40px; }
         .section-title h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; font-family: 'Georgia', serif; }
         .section-subtitle { color: #666; font-size: 1rem; }
 
-        /* --- CARDS --- */
+        /* --- CARDS (MEJORADO: IMÁGENES MÁS GRANDES Y COMPLETAS) --- */
         .card {
             background: white; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s;
             border: 1px solid #eee;
             display: flex; flex-direction: column;
-            width: 100%; /* Asegura que no exceda el contenedor */
+            width: 100%;
+            height: 100%;
         }
         .card:hover { transform: translateY(-5px); }
-        .card-img { height: 180px; width: 100%; object-fit: cover; }
-        .card-body { padding: 15px; flex-grow: 1; }
+        
+        /* MODIFICACIÓN CLAVE: Imágenes más grandes y sin recorte */
+        .card-img { 
+            height: 300px; /* Cuadros más grandes */
+            width: 100%; 
+            object-fit: contain; /* Asegura que se vea COMPLETA, no recortada */
+            object-position: center;
+            background-color: #fff; /* Fondo blanco para que se vea limpio el marco */
+            padding: 15px; /* Un pequeño borde interior elegante */
+            box-sizing: border-box;
+            cursor: pointer; /* Indica que se puede hacer clic */
+        }
+        
+        .card-body { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
         .card-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 8px; color: var(--primary-color); }
 
         /* --- LISTA DE ITEMS --- */
@@ -134,7 +200,7 @@
         .list-item h4 { color: var(--text-dark); margin-bottom: 4px; font-size: 0.95rem; }
         .list-item p { font-size: 0.85rem; color: #666; }
 
-        /* --- GAstronomía (Textos Largos) --- */
+        /* --- GAstronomía --- */
         .gastronomy-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; }
         .gastronomy-card { background: white; padding: 20px; border-radius: 10px; border-top: 5px solid var(--accent-color); box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; }
         .gastronomy-card h4 { font-size: 1.2rem; color: var(--primary-color); margin-bottom: 5px; text-transform: uppercase; font-family: 'Georgia', serif; }
@@ -158,7 +224,8 @@
 
         /* --- GALERÍA DE FOTOS (EXPANDIDA) --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-        .gallery-item { border-radius: 10px; overflow: hidden; height: 180px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 180px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; background: #fff; display: flex; align-items: center; justify-content: center;}
+        /* En la galería general usamos cover para que sea un mosaico, pero con padding para que no se corten feo si se desalinea */
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-item::after {
@@ -178,12 +245,12 @@
         .footer-col h4 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.1rem; }
         .footer-logo { height: 60px; margin-bottom: 10px; object-fit: contain; }
         
-        /* --- BOTONES FLOTANTES CENTRADOS (SOLUCIÓN DEFINITIVA) --- */
+        /* --- BOTONES FLOTANTES --- */
         .whatsapp-float { 
             position: fixed; 
             bottom: 15px; 
-            left: 50%; /* Centrado */
-            transform: translateX(-50%); /* Ajuste fino del centro */
+            left: 50%; 
+            transform: translateX(-50%); 
             background-color: #25d366; 
             color: white; 
             width: 60px; 
@@ -199,11 +266,10 @@
         }
         .whatsapp-float:hover { transform: translateX(-50%) scale(1.1); }
         
-        /* CHATBOT ARRIBA DEL WHATSAPP, AMBOS CENTRADOS */
         .chatbot-float {
             position: fixed;
             bottom: 85px; 
-            left: 50%; /* Centrado */
+            left: 50%; 
             transform: translateX(-50%);
             background-color: #f1c40f;
             color: #2c3e50;
@@ -215,7 +281,7 @@
             align-items: center;
             font-size: 30px;
             box-shadow: 0 0 15px rgba(241, 196, 15, 0.5);
-            z-index: 990; /* Menor que el menú móvil */
+            z-index: 990; 
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -265,11 +331,12 @@
         }
         .close-chatbot:hover { background: #fff; color: #d35400; }
 
-        /* LIGHTBOX (IMÁGENES) */
-        .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); justify-content: center; align-items: center; flex-direction: column; }
-        .lightbox.active { display: flex; animation: fadeIn 0.3s; }
-        .lightbox img { max-width: 95%; max-height: 80vh; border-radius: 5px; box-shadow: 0 0 20px rgba(255,255,255,0.1); }
-        .close-lightbox { color: white; font-size: 40px; cursor: pointer; position: absolute; top: 20px; right: 20px; z-index: 2002; }
+        /* LIGHTBOX (MEJORADO VISUALMENTE) */
+        .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center; flex-direction: column; backdrop-filter: blur(8px); }
+        .lightbox.active { display: flex; animation: fadeIn 0.4s ease-out; }
+        .lightbox img { max-width: 95%; max-height: 85vh; border-radius: 5px; box-shadow: 0 0 30px rgba(255,255,255,0.15); border: 2px solid white; }
+        .close-lightbox { color: white; font-size: 50px; cursor: pointer; position: absolute; top: 20px; right: 30px; z-index: 2002; transition: transform 0.2s; }
+        .close-lightbox:hover { transform: scale(1.1); color: var(--accent-color); }
 
         /* --- ANIMACIONES --- */
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
@@ -277,7 +344,6 @@
 
         /* --- MEDIA QUERIES MÓVILES --- */
         @media (max-width: 768px) {
-            /* Espacio vital para botones centrados */
             body { padding-bottom: 100px; }
             
             .hamburger { display: flex; }
@@ -292,7 +358,7 @@
                 padding: 80px 20px 20px; 
                 box-shadow: -5px 0 15px rgba(0,0,0,0.2); 
                 transition: 0.4s ease; 
-                z-index: 1005; /* POR ENCIMA DE CHATBOT Y WHATSAPP */
+                z-index: 1005; 
                 overflow-y: auto;
             }
             .nav-menu.active { right: 0; }
@@ -300,10 +366,11 @@
             .hero-content h2 { font-size: 1.8rem; }
             .nav-menu { gap: 20px; }
             
-            /* Ajustes botones en móviles pequeños */
             .chatbot-float { width: 50px; height: 50px; font-size: 22px; bottom: 70px; }
             .whatsapp-float { width: 50px; height: 50px; font-size: 22px; bottom: 10px; }
             .chatbot-content { width: 95%; height: 80%; }
+            /* Ajuste de imagen en móvil para que no sean demasiado altas */
+            .card-img { height: 250px; }
         }
     </style>
 </head>
@@ -328,6 +395,7 @@
     <header>
         <div class="nav-container">
             <div class="logo-area">
+                <!-- LOGO MANTENIDO IDENTICO -->
                 <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>🥇 LA CACHAMITA<br>DE ORO 🟢</h1>
@@ -374,16 +442,14 @@
     <section id="cachama">
         <div class="container">
             <div class="section-title">
-                <!-- CAMBIO TITULAR: Producto Estrella -->
                 <h3>🐟 Producto Estrella: Cachama  Frita o Guisada</h3>
             </div>
             
             <div class="grid-2">
                 <div>
-                    <img src="images/plato-cachama-frita-gigante.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachama Grande">
+                    <img src="images/plato-cachama-frita-gigante.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer;" alt="Cachama Grande" onclick="openLightbox(this.src)">
                 </div>
                 <div style="text-align: left;">
-                    <!-- CAMBIO SUBTITULAR: CACHAMA  DE 800 GRAMOS O MÁS  -->
                     <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">"CACHAMA DE 800 GRAMOS O MÁS "</h2>
                     <p style="font-weight: bold; color: var(--text-dark);">🌟 NUESTRO PRODUCTO ESTRELLA</p>
                     <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro hemos perfeccionado el arte de preparar la cachama frita hasta convertirla en una verdadera joya culinaria. Nuestra Cachamita de Oro no es simplemente un plato, es una experiencia gastronómica que captura la esencia misma de la comida criolla venezolana con el toque único de la tradición llanera de Barinas.</p>
@@ -403,7 +469,7 @@
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN SOLICITADA: CACHAMA FRITA EN BARINAS -->
+    <!-- NUEVA SECCIÓN: CACHAMA FRITA EN BARINAS -->
     <section id="cachama-frita-barinas" style="background-color: #fff; padding: 60px 0;">
         <div class="container">
             <div class="section-title">
@@ -413,6 +479,7 @@
 
             <div class="grid-3">
                 <div class="card">
+                    <!-- Imagen con clase card-img para efecto completo y bonito -->
                     <img src="images/cachamafrita-comida-en-barinas-cachamita-de-oro.jpeg" class="card-img" alt="Cachama Frita en Barinas Cachamita de Oro">
                     <div class="card-body" style="text-align: center;">
                         <p style="font-weight: bold; font-size: 1rem; color: var(--primary-color);">Cachama Frita Típica</p>
@@ -444,11 +511,10 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/cachapa-queso-mano-rellena.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cachapa Venezolana">
+                    <img src="images/cachapa-queso-mano-rellena.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer;" alt="Cachapa Venezolana" onclick="openLightbox(this.src)">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🌽 CACHAPA VENEZOLANA LLANERA</h2>
-                    <!-- CAMBIO "DORADA" POR "DE ORO" -->
                     <p style="font-weight: bold; color: var(--text-dark);">🌽 NUESTRA Tradición CACHAPA CON LO QUE SE ANTOJE </p>
                     <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro rescatamos la auténtica esencia de la cachapa venezolana, ese manjar llanero que combina la dulzura natural del maíz con la cremosidad única del queso de mano. No es solo un acompañamiento, es una experiencia gastronómica que define la comida criolla barinesa en su máxima expresión.</p>
                 </div>
@@ -461,7 +527,7 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/carne-asada-llanera-parrilla.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Carne Asada Llanera">
+                    <img src="images/carne-asada-llanera-parrilla.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer;" alt="Carne Asada Llanera" onclick="openLightbox(this.src)">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🥩 CARNE ASADA LLANERA</h2>
@@ -477,11 +543,10 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/cochino-frito-cachapa-queso.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Cochino Frito">
+                    <img src="images/cochino-frito-cachapa-queso.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer;" alt="Cochino Frito" onclick="openLightbox(this.src)">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🐷 COCHINO FRITO VENEZOLANO</h2>
-                    <!-- CAMBIO "DORADA" POR "DE ORO" -->
                     <p style="font-weight: bold; color: var(--text-dark);">🐷 LA TRADICIÓN DE ORO</p>
                     <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro rescatamos la técnica ancestral del cochino frito venezolano, ese plato que combina la jugosidad de la carne de cerdo con una piel tan crujiente que se convierte en experiencia sensorial.</p>
                 </div>
@@ -494,7 +559,7 @@
         <div class="container">
             <div class="grid-2">
                 <div>
-                    <img src="images/cocktel-camaron-barinas.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" alt="Marisquería Criolla">
+                    <img src="images/cocktel-camaron-barinas.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer;" alt="Marisquería Criolla" onclick="openLightbox(this.src)">
                 </div>
                 <div style="text-align: left;">
                     <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🦐 MARISQUERÍA CRIOLLA</h2>
@@ -727,7 +792,7 @@
         </div>
     </section>
 
-    <!-- SECCIÓN: TEXTOS DESCRIPTIVOS (AQUÍ INSERTÉ LOS NUEVOS TEXTOS) -->
+    <!-- SECCIÓN: TEXTOS DESCRIPTIVOS -->
     <section id="gastronomia" style="background-color: #f9f9f9;">
         <div class="container">
             <div class="section-title">
@@ -845,6 +910,7 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-col text-center">
+                <!-- LOGO MANTENIDO IDENTICO -->
                 <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="footer-logo">
                 <p style="font-size: 0.9rem;">Tradición Llanera.</p>
             </div>
@@ -880,21 +946,33 @@
         hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
         navLinks.forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
 
-        // Lightbox
+        // Función Lightbox Mejorada
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         
-        // Incluimos las nuevas imágenes de Desayunos en el listener
-        // Buscamos todas las imágenes con clase 'desayuno-img' también
+        // Selección de todas las imágenes que deben abrir en el Lightbox
         const images = document.querySelectorAll('.card-img, .gallery-item img, .desayuno-img'); 
         images.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightbox.classList.add('active');
+            img.addEventListener('click', (e) => {
+                // Si la imagen ya tiene un onclick inline (como en las secciones principales), no duplicamos evento
+                if (!img.hasAttribute('onclick')) {
+                    openLightbox(img.src);
+                }
             });
         });
+
+        // Cerrar Lightbox
         document.querySelector('.close-lightbox').addEventListener('click', () => lightbox.classList.remove('active'));
-        lightbox.addEventListener('click', (e) => { if(e.target !== lightboxImg) lightbox.classList.remove('active'); });
+        lightbox.addEventListener('click', (e) => { 
+            if(e.target !== lightboxImg) lightbox.classList.remove('active'); 
+        });
     </script>
 </body> 
 </html>
