@@ -342,6 +342,28 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+        /* --- NUEVO: Ajuste para imágenes completas (Mismo estilo de mecánico247) --- */
+        .img-wrapper-full {
+            position: relative;
+            width: 100%;
+            min-height: 250px; 
+            max-height: 400px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa; 
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .img-wrapper-full img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Clave: Mantiene toda la imagen visible */
+            display: block;
+        }
+
         /* --- MEDIA QUERIES MÓVILES --- */
         @media (max-width: 768px) {
             body { padding-bottom: 100px; }
@@ -369,7 +391,6 @@
             .chatbot-float { width: 50px; height: 50px; font-size: 22px; bottom: 70px; }
             .whatsapp-float { width: 50px; height: 50px; font-size: 22px; bottom: 10px; }
             .chatbot-content { width: 95%; height: 80%; }
-            /* Ajuste de imagen en móvil para que no sean demasiado altas */
             .card-img { height: 250px; }
         }
     </style>
@@ -554,23 +575,142 @@
         </div>
     </section>
 
-    <!-- 5. MARISQUERÍA -->
-    <section id="marisqueria">
+    <!-- ========================================== -->
+    <!-- NUEVAS SECCIONES AGREGADAS (ESTILO MECÁNICO247) -->
+    <!-- ========================================== -->
+
+    <!-- 5. BAGRE GUISADO -->
+    <section id="bagre-guisado" style="background-color: #fff; border-top: 1px solid #eee;">
         <div class="container">
             <div class="grid-2">
-                <div>
-                    <img src="images/cocktel-camaron-barinas.jpeg" style="border-radius: 15px; width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); cursor: pointer;" alt="Marisquería Criolla" onclick="openLightbox(this.src)">
+                <div class="card">
+                    <div class="img-wrapper-full">
+                        <img src="images/la-cachamita-de-oro-bagre-guisado-comida-criolla-barinas.jpg" alt="Bagre Guisado">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Bagre Guisado</h3>
+                        <p style="font-size: 0.9rem; color: #555;">Prueba el auténtico bagre guisado en La Cachamita de Oro. Pescado fresco de río cocinado a fuego lento con el sazón de la comida criolla de Barinas. Un plato lleno de sabor y tradición para los que buscan lo mejor de nuestra tierra. ¡Calidad y frescura de oro!</p>
+                    </div>
                 </div>
-                <div style="text-align: left;">
-                    <h2 style="color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem;">🦐 MARISQUERÍA CRIOLLA</h2>
-                    <p style="font-weight: bold; color: var(--text-dark);">🦐 EL SABOR DEL MAR EN BARINAS</p>
-                    <p style="margin-bottom: 15px; font-size: 0.9rem;">En La Cachamita de Oro desafiamos la geografía para traer lo mejor del mar a la mesa llanera. Nuestra marisquería criolla combina la frescura de pescados y mariscos con las técnicas y sabores de la cocina venezolana.</p>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 20px; background: var(--bg-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">🐟 Sabor de Río</h3>
+                    <p style="font-size: 0.9rem;">Pescado de temporada, guiso tradicional.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NUEVA SECCIÓN: DESAYUNOS -->
+    <!-- 6. DESAYUNO CRIOLLO -->
+    <section id="desayuno-criollo" style="background-color: #fff;">
+        <div class="container">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="img-wrapper-full">
+                        <img src="images/la-cachamita-de-oro-desayuno-criollo-caraota-queso-y-arepa.jpg" alt="Desayuno Criollo">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Desayuno Criollo</h3>
+                        <p style="font-size: 0.9rem; color: #555;">El mejor desayuno criollo te espera en La Cachamita de Oro. Caraota, queso criollo y arepa asada al momento. La energía que necesitas con el sabor de Barinas. Si buscas comida criolla cerca de mí para empezar el día, nuestro sazón llanero es la elección perfecta.</p>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 20px; background: var(--bg-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">☀️ Energía Llanera</h3>
+                    <p style="font-size: 0.9rem;">Comienza el día con fuerza.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOSFORERA -->
+    <section id="fosforera">
+        <div class="container">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="img-wrapper-full">
+                        <img src="images/la-cachamita-de-oro-fosforera-marisqueria-levanta-muertos.jpg" alt="Fosforera">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Fosforera</h3>
+                        <p style="font-size: 0.9rem; color: #555;">Recarga energías en nuestra marisquería con la potente fosforera de La Cachamita de Oro. Un concentrado de mariscos frescos con el toque secreto de la casa. El "levanta muertos" más famoso de Barinas, servido bien caliente y con un sabor marino simplemente de oro.</p>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 20px; background: var(--bg-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">🦐 Mariscos Frescos</h3>
+                    <p style="font-size: 0.9rem;">Potencia y sabor marino.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PECHUGA A LA PLANCHA -->
+    <section id="pechuga-plancha" style="background-color: #fff;">
+        <div class="container">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="img-wrapper-full">
+                        <img src="images/la-cachamita-de-oro-pechuga-a-la-plancha-con-papas-y-ensalada.jpg" alt="Pechuga a la Plancha">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Pechuga a la Plancha</h3>
+                        <p style="font-size: 0.9rem; color: #555;">Nuestra pechuga a la plancha con papas y ensalada es la opción saludable y sabrosa en La Cachamita de Oro. Pollo jugoso sellado a la perfección con guarniciones frescas. Ideal para un almuerzo ligero pero con el auténtico sello de la comida criolla en Barinas. ¡Pruébala ya!</p>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 20px; background: var(--bg-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">🍗 Saludable y Saboroso</h3>
+                    <p style="font-size: 0.9rem;">Calidad premium para ti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. AREPA CON PERNIL -->
+    <section id="arepa-pernil">
+        <div class="container">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="img-wrapper-full">
+                        <img src="images/la-cachamita-de-oro-arepa-con-pernil-asado-llanero.jpg" alt="Arepa con Pernil">
+                    </end>
+                    <div class="card-body">
+                        <h3 class="card-title">Arepa con Pernil</h3>
+                        <p style="font-size: 0.9rem; color: #555;">¡Imposible resistirse! La arepa con pernil de La Cachamita de Oro es puro sabor llanero. Pernil horneado lentamente, jugoso y desmechado dentro de una arepa crujiente. La mejor comida criolla de Barinas para calmar cualquier antojo con calidad y sazón de oro.</p>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 20px; background: var(--bg-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">🌽 Tradición Llanera</h3>
+                    <p style="font-size: 0.9rem;">Pernil suave y arepa crujiente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. COCHINO FRITO CON TOSTONES -->
+    <section id="cochino-frito-tostones" style="background-color: #fff; padding-bottom: 60px;">
+        <div class="container">
+            <div class="grid-2">
+                <div class="card">
+                    <div class="img-wrapper-full">
+                        <img src="images/la-cachamita-de-oro-cochino-frito-con-tostones-y-ensalada.jpg" alt="Cochino Frito con Tostones">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">Cochino Frito con Tostones</h3>
+                        <p style="font-size: 0.9rem; color: #555;">Disfruta el cochino frito con tostones y ensalada más crujiente de Barinas. En La Cachamita de Oro seleccionamos la mejor carne de cerdo para ofrecerte un plato tradicional, dorado y con mucho sabor. El acompañante perfecto para tu comida criolla favorita. ¡Te esperamos!</p>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center; text-align: center; padding: 20px; background: var(--bg-light);">
+                    <h3 style="color: var(--primary-color); margin-bottom: 10px;">🥓 Crujencia y Sabor</h3>
+                    <p style="font-size: 0.9rem;">El clásico de la cocina criolla.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- FIN NUEVAS SECCIONES -->
+    <!-- ========================================== -->
+
+
+    <!-- NUEVA SECCIÓN: DESAYUNOS (Antigua, mantenida igual) -->
     <section id="desayunos" style="background-color: #fffaf0; border-top: 1px solid #ffe0b2; border-bottom: 1px solid #ffe0b2;">
         <div class="container">
             <div class="section-title">
