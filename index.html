@@ -10,24 +10,38 @@
     <meta name="description" content="#1 Restaurante comida criolla Barinas. Especialistas en cachama frita La Caramuca, carne asada a domicilio Barinas y la mejor parrillada criolla.">
     <meta name="keywords" content="comida criolla barinas, carne asada barinas, cachapa venezolana barinas, restaurante la cachamita de oro, comida criolla cerca de mi, cachamita de oro, cochino frito barinas, parrillada criolla barinas, marisquería barinas, carne asada a domicilio barinas, donde comer cachama frita, la caramuca restaurante, cachapa con queso barinas, comida criolla delivery barinas, buffet criollo barinas, cena criolla barinas, mejor carne asada barinas, restaurante llanero barinas, pescados y mariscos barinas">
     
-    <!-- Open Graph -->
+    <!-- ========================================= -->
+    <!-- CONFIGURACIÓN PARA COMPARTIR (OPEN GRAPH) -->
+    <!-- Esto controla qué se ve cuando envías la URL por WhatsApp/Chat -->
+    <!-- ========================================= -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="🥇 La Cachamita de Oro - Tradición Llanera">
-    <meta property="og:description" content="La mejor Cachama Frita y Carne Asada de Barinas. Ingredientes de alta calidad y menú completo.">
-    <meta property="og:image" content="images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg">
+    <meta property="og:locale" content="es_ES">
+    
+    <!-- Título que aparece al compartir -->
+    <meta property="og:title" content="🥇 La Cachamita de Oro - El Sabor del Llano">
+    
+    <!-- Descripción que aparece al compartir -->
+    <meta property="og:description" content="Disfruta la mejor Cachama Frita, Carne Asada y Cachapas en Barinas. Comida criolla de calidad de oro. ¡Pide ya!">
+    
+    <!-- IMAGEN PRINCIPAL AL COMPARTIR (Tu Logo) -->
+    <!-- Asegúrate de que este archivo exista en la carpeta images/ -->
+    <meta property="og:image" content="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+    
+    <!-- URL del sitio (opcional, pero recomendado) -->
+    <meta property="og:url" content="https://tu-sitio-web.com">
 
-    <!-- LOGO MANTENIDO IGUAL COMO SOLICITASTE -->
+    <!-- LOGO / FAVICON (Pestaña del navegador) -->
     <link rel="icon" type="image/jpeg" href="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
 
-    <!-- SCHEMA MARKUP PARA SEO LOCAL (Recomendación Técnica) -->
+    <!-- SCHEMA MARKUP PARA SEO LOCAL -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "La Cachamita de Oro",
       "image": [
-        "images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg",
-        "images/cachamafrita-comida-en-barinas-cachamita-de-oro.jpeg"
+        "images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg",
+        "images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg"
        ],
       "address": {
         "@type": "PostalAddress",
@@ -105,7 +119,6 @@
         .container { width: 90%; max-width: 1200px; margin: 0 auto; position: relative; }
         .text-center { text-align: center; }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        /* Reducido minmax para móviles pequeños */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
 
@@ -168,7 +181,7 @@
         .section-title h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; font-family: 'Georgia', serif; }
         .section-subtitle { color: #666; font-size: 1rem; }
 
-        /* --- CARDS (MEJORADO: IMÁGENES MÁS GRANDES Y COMPLETAS) --- */
+        /* --- CARDS --- */
         .card {
             background: white; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s;
@@ -179,16 +192,15 @@
         }
         .card:hover { transform: translateY(-5px); }
         
-        /* MODIFICACIÓN CLAVE: Imágenes más grandes y sin recorte */
         .card-img { 
-            height: 300px; /* Cuadros más grandes */
+            height: 300px;
             width: 100%; 
-            object-fit: contain; /* Asegura que se vea COMPLETA, no recortada */
+            object-fit: contain; 
             object-position: center;
-            background-color: #fff; /* Fondo blanco para que se vea limpio el marco */
-            padding: 15px; /* Un pequeño borde interior elegante */
+            background-color: #fff; 
+            padding: 15px;
             box-sizing: border-box;
-            cursor: pointer; /* Indica que se puede hacer clic */
+            cursor: pointer; 
         }
         
         .card-body { padding: 15px; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
@@ -222,10 +234,9 @@
         .video-info { padding: 10px; }
         .video-info h4 { font-size: 0.85rem; color: var(--text-dark); font-weight: bold; }
 
-        /* --- GALERÍA DE FOTOS (EXPANDIDA) --- */
+        /* --- GALERÍA DE FOTOS --- */
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
         .gallery-item { border-radius: 10px; overflow: hidden; height: 180px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; background: #fff; display: flex; align-items: center; justify-content: center;}
-        /* En la galería general usamos cover para que sea un mosaico, pero con padding para que no se corten feo si se desalinea */
         .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
         .gallery-item:hover img { transform: scale(1.1); }
         .gallery-item::after {
@@ -331,7 +342,7 @@
         }
         .close-chatbot:hover { background: #fff; color: #d35400; }
 
-        /* LIGHTBOX (MEJORADO VISUALMENTE) */
+        /* LIGHTBOX */
         .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center; flex-direction: column; backdrop-filter: blur(8px); }
         .lightbox.active { display: flex; animation: fadeIn 0.4s ease-out; }
         .lightbox img { max-width: 95%; max-height: 85vh; border-radius: 5px; box-shadow: 0 0 30px rgba(255,255,255,0.15); border: 2px solid white; }
@@ -342,7 +353,7 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* --- NUEVO: Ajuste para imágenes completas (Mismo estilo de mecánico247) --- */
+        /* --- Ajuste para imágenes completas --- */
         .img-wrapper-full {
             position: relative;
             width: 100%;
@@ -360,7 +371,7 @@
         .img-wrapper-full img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* Clave: Mantiene toda la imagen visible */
+            object-fit: contain; 
             display: block;
         }
 
@@ -500,7 +511,6 @@
 
             <div class="grid-3">
                 <div class="card">
-                    <!-- Imagen con clase card-img para efecto completo y bonito -->
                     <img src="images/cachamafrita-comida-en-barinas-cachamita-de-oro.jpeg" class="card-img" alt="Cachama Frita en Barinas Cachamita de Oro">
                     <div class="card-body" style="text-align: center;">
                         <p style="font-weight: bold; font-size: 1rem; color: var(--primary-color);">Cachama Frita Típica</p>
