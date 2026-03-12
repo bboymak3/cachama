@@ -2,46 +2,55 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <!-- Viewport corregido para evitar scroll lateral accidental -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>🥇 La Cachamita de Oro | Comida Criolla, Cachapas, Carne Asada, Y Cachama Frita en Barinas</title>
+    <title>🥇 La Cachamita de Oro | Comida Criolla en Barinas</title>
     
     <!-- SEO -->
-    <meta name="description" content="#1 Restaurante comida criolla Barinas. Especialistas en cachama frita La Caramuca, carne asada a domicilio Barinas y la mejor parrillada criolla.">
-    <meta name="keywords" content="comida criolla barinas, carne asada barinas, cachapa venezolana barinas, restaurante la cachamita de oro, comida criolla cerca de mi, cachamita de oro, cochino frito barinas, parrillada criolla barinas, marisquería barinas, carne asada a domicilio barinas, donde comer cachama frita, la caramuca restaurante, cachapa con queso barinas, comida criolla delivery barinas, buffet criollo barinas, cena criolla barinas, mejor carne asada barinas, restaurante llanero barinas, pescados y mariscos barinas">
+    <meta name="description" content="#1 Restaurante comida criolla Barinas. Especialistas en cachama frita La Caramuca, carne asada y la mejor parrillada criolla.">
     
     <!-- ========================================= -->
     <!-- CONFIGURACIÓN PARA COMPARTIR (OPEN GRAPH) -->
-    <!-- Esto controla qué se ve cuando envías la URL por WhatsApp/Chat -->
+    <!-- Forzamos el logo aquí -->
     <!-- ========================================= -->
+    
+    <!-- Tipo de tarjeta -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
     
-    <!-- Título que aparece al compartir -->
+    <!-- Título -->
     <meta property="og:title" content="🥇 La Cachamita de Oro - El Sabor del Llano">
     
-    <!-- Descripción que aparece al compartir -->
+    <!-- Descripción -->
     <meta property="og:description" content="Disfruta la mejor Cachama Frita, Carne Asada y Cachapas en Barinas. Comida criolla de calidad de oro. ¡Pide ya!">
     
-    <!-- IMAGEN PRINCIPAL AL COMPARTIR (Tu Logo) -->
-    <!-- Asegúrate de que este archivo exista en la carpeta images/ -->
-    <meta property="og:image" content="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
-    
-    <!-- URL del sitio (opcional, pero recomendado) -->
-    <meta property="og:url" content="https://tu-sitio-web.com">
+    <!-- URL (Cámbiala por tu dominio real si es necesario) -->
+    <meta property="og:url" content="https://tu-dominio.com">
 
-    <!-- LOGO / FAVICON (Pestaña del navegador) -->
+    <!-- IMAGEN PRINCIPAL (Tu Logo) -->
+    <!-- He añadido las dimensiones recomendadas para WhatsApp -->
+    <meta property="og:image" content="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+    <meta property="og:image:secure_url" content="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Cards (Ayuda a otros chats a leer la imagen) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="La Cachamita de Oro - El Sabor del Llano">
+    <meta name="twitter:description" content="Disfruta la mejor Cachama Frita y Carne Asada en Barinas.">
+    <meta name="twitter:image" content="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+
+    <!-- Favicon (Pestaña del navegador) -->
     <link rel="icon" type="image/jpeg" href="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
 
-    <!-- SCHEMA MARKUP PARA SEO LOCAL -->
+    <!-- SCHEMA MARKUP -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "La Cachamita de Oro",
       "image": [
-        "images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg",
-        "images/cachama-frita-cachamita-de-oro--cochinito-carne-pollo-frito-asado-cerdo.jpg"
+        "images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg"
        ],
       "address": {
         "@type": "PostalAddress",
@@ -51,37 +60,8 @@
         "postalCode": "5201",
         "addressCountry": "VE"
       },
-      "priceRange": "$$",
       "telephone": "+584264562796",
-      "servesCuisine": "Venezuelan, Barbecue, Seafood",
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday"
-          ],
-          "opens": "11:00",
-          "closes": "21:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Friday",
-            "Saturday"
-          ],
-          "opens": "11:00",
-          "closes": "22:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Sunday",
-          "opens": "11:00",
-          "closes": "20:00"
-        }
-      ]
+      "servesCuisine": "Venezuelan, Barbecue, Seafood"
     }
     </script>
 
@@ -427,7 +407,7 @@
     <header>
         <div class="nav-container">
             <div class="logo-area">
-                <!-- LOGO MANTENIDO IDENTICO -->
+                <!-- LOGO -->
                 <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>🥇 LA CACHAMITA<br>DE ORO 🟢</h1>
@@ -1190,7 +1170,7 @@
     <footer>
         <div class="container footer-grid">
             <div class="footer-col text-center">
-                <!-- LOGO MANTENIDO IDENTICO -->
+                <!-- LOGO -->
                 <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="footer-logo">
                 <p style="font-size: 0.9rem;">Tradición Llanera.</p>
             </div>
