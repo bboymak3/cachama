@@ -5,6 +5,6 @@
 http://cachamitadeoro.pages.dev/* https://cachamitadeoro.pages.dev/:splat 301
 
 # Redirecciones personalizadas (Ejemplos por si quieres acortar links)
-/whatsapp    https://wa.me/584264562796    301
+/whatsapp    https://wa.me/584245315396    301
 /menu        /index.html#menu              301
 /ubicacion   https://maps.app.goo.gl/TuUbicacionReal 301
