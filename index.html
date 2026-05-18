@@ -88,7 +88,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             width: 100vw;
-            padding-bottom: 80px;
+            padding-bottom: 60px;
         }
 
         a { text-decoration: none; color: inherit; transition: 0.3s; }
@@ -248,13 +248,13 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-top: 1px solid #e0e0e0;
-            padding: 10px 15px;
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            padding: 6px 12px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
         }
         .big-buttons-container {
             display: flex;
-            gap: 10px;
-            max-width: 600px;
+            gap: 8px;
+            max-width: 420px;
             margin: 0 auto;
         }
         .btn-massive-call {
@@ -262,55 +262,54 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
+            gap: 6px;
+            padding: 8px 14px;
             background: linear-gradient(135deg, #219150, #27ae60);
             color: white;
-            font-weight: 800;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 14px;
+            letter-spacing: 0.5px;
+            border-radius: 10px;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(39,174,96,0.4);
+            box-shadow: 0 2px 8px rgba(39,174,96,0.3);
         }
         .btn-massive-call:hover {
             background: linear-gradient(135deg, #1a7a42, #219150);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(39,174,96,0.5);
+            transform: translateY(-1px);
             color: white;
         }
-        .btn-massive-call svg { flex-shrink: 0; }
+        .btn-massive-call svg { width: 18px; height: 18px; flex-shrink: 0; }
         .btn-massive-wa {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
+            gap: 6px;
+            padding: 8px 14px;
             background: linear-gradient(135deg, #128c7e, #25d366);
             color: white;
-            font-weight: 800;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 0.78rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 14px;
+            letter-spacing: 0.5px;
+            border-radius: 10px;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37,211,102,0.4);
+            box-shadow: 0 2px 8px rgba(37,211,102,0.3);
         }
         .btn-massive-wa:hover {
             background: linear-gradient(135deg, #0e6e63, #128c7e);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+            transform: translateY(-1px);
             color: white;
         }
-        .btn-massive-wa svg { flex-shrink: 0; }
+        .btn-massive-wa svg { width: 18px; height: 18px; flex-shrink: 0; }
         @media (max-width: 768px) {
-            .sticky-bottom-bar { padding: 8px 10px; }
-            .btn-massive-call, .btn-massive-wa { padding: 12px 10px; font-size: 0.8rem; border-radius: 12px; gap: 6px; }
-            .btn-massive-call svg, .btn-massive-wa svg { width: 20px; height: 20px; }
+            .sticky-bottom-bar { padding: 5px 8px; }
+            .big-buttons-container { max-width: 100%; gap: 6px; }
+            .btn-massive-call, .btn-massive-wa { padding: 7px 8px; font-size: 0.7rem; border-radius: 8px; gap: 4px; }
+            .btn-massive-call svg, .btn-massive-wa svg { width: 16px; height: 16px; }
         }
         
         .chatbot-float {
