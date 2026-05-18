@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Testimonios - La Cachamita de Oro | Opiniones de Clientes</title>
+    <meta name="description" content="Lee las opiniones y testimonios de clientes felices de La Cachamita de Oro en Barinas. Comida criolla, cachama frita y carne asada.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="Testimonios - La Cachamita de Oro">
+    <meta property="og:description" content="Opiniones reales de clientes satisfechos. La mejor comida criolla de Barinas.">
+    <meta property="og:url" content="https://cachamitadeoro.pages.dev/testimonios.html">
+    <meta property="og:image" content="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+    <link rel="icon" type="image/jpeg" href="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+    <style>
+        :root { --primary-color: #d35400; --secondary-color: #27ae60; --accent-color: #f39c12; --text-dark: #2c3e50; --bg-light: #fdfbf7; --white: #ffffff; --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; width: 100vw; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        header { background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 10px 0; width: 100%; }
+        .nav-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo-text h1 { font-size: 0.8rem; color: var(--primary-color); line-height: 1.1; text-transform: uppercase; font-weight: 800; }
+        .nav-menu { display: flex; gap: 10px; align-items: center; }
+        .nav-link { font-weight: 600; color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color); }
+        .btn-cta { background-color: var(--secondary-color); color: white; padding: 6px 12px; border-radius: 50px; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 15px rgba(39,174,96,0.3); white-space: nowrap; font-size: 0.8rem; }
+        .btn-cta:hover { background-color: #219150; transform: translateY(-2px); }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
+        .bar { width: 25px; height: 3px; background-color: var(--primary-color); transition: 0.3s; }
+        section { padding: 60px 0; overflow-x: hidden; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; font-family: 'Georgia', serif; }
+        .hero-inner { position: relative; height: 50vh; background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.65)), url('images/plato-cachama-frita-gigante.jpeg'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; padding: 0 20px; width: 100vw; }
+        .hero-inner h2 { font-size: clamp(2rem, 5vw, 3rem); text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .testimonial-card { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; transition: transform 0.3s; }
+        .testimonial-card:hover { transform: translateY(-5px); }
+        .testimonial-card .stars { color: var(--accent-color); font-size: 1.2rem; margin-bottom: 10px; }
+        .testimonial-card .review { font-size: 0.95rem; color: #555; margin-bottom: 15px; font-style: italic; line-height: 1.7; }
+        .testimonial-card .author { font-weight: bold; color: var(--primary-color); font-size: 0.95rem; }
+        .testimonial-card .date { font-size: 0.8rem; color: #999; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 180px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item::after { content: '+'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: white; font-size: 1.5rem; opacity: 0; transition: 0.3s; pointer-events: none; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .gallery-item:hover::after { opacity: 1; }
+        footer { background-color: #222; color: #fff; padding: 40px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-col h4 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-logo { height: 60px; margin-bottom: 10px; object-fit: contain; }
+        .whatsapp-float { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 990; transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: translateX(-50%) scale(1.1); }
+        .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center; flex-direction: column; backdrop-filter: blur(8px); }
+        .lightbox.active { display: flex; animation: fadeIn 0.4s ease-out; }
+        .lightbox img { max-width: 95%; max-height: 85vh; border-radius: 5px; box-shadow: 0 0 30px rgba(255,255,255,0.15); border: 2px solid white; }
+        .close-lightbox { color: white; font-size: 50px; cursor: pointer; position: absolute; top: 20px; right: 30px; z-index: 2002; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) {
+            body { padding-bottom: 100px; }
+            .hamburger { display: flex; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 85%; height: 100vh; background-color: white; flex-direction: column; padding: 80px 20px 20px; box-shadow: -5px 0 15px rgba(0,0,0,0.2); transition: 0.4s ease; z-index: 1005; overflow-y: auto; }
+            .nav-menu.active { right: 0; }
+            .grid-2 { grid-template-columns: 1fr; gap: 20px; }
+            .nav-menu { gap: 20px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 22px; bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/584245315396?text=Hola,%20quiero%20pedir%20en%20La%20Cachamita%20de%20Oro" class="whatsapp-float" target="_blank">💬</a>
+<div class="lightbox" id="lightbox"><span class="close-lightbox">&times;</span><img id="lightbox-img" src="" alt="Vista Ampliada"></div>
+
+<header>
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="logo-img">
+            <div class="logo-text"><h1>LA CACHAMITA<br>DE ORO</h1></div>
+        </div>
+        <nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="index.html#menu" class="nav-link">Menú</a></li>
+                <li><a href="index.html#galeria" class="nav-link">Platos</a></li>
+                <li><a href="quienes-somos.html" class="nav-link">Quiénes Somos</a></li>
+                <li><a href="index.html#videos" class="nav-link">Videos</a></li>
+                <li><a href="testimonios.html" class="nav-link active">Testimonios</a></li>
+                <li><a href="preguntas-frecuentes.html" class="nav-link">FAQ</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="tel:04245315396" class="btn-cta">Llamar</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    </div>
+</header>
+
+<section class="hero-inner">
+    <div><h2>Lo Que Dicen Nuestros Clientes</h2><p style="font-size: 1.1rem; margin-top: 10px;">Opiniones reales de quienes nos visitan</p></div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section>
+    <div class="container">
+        <div class="section-title"><h3>Opiniones de Clientes Felices</h3><p>Cada reseña nos motiva a seguir cocinando con amor</p></div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"La mejor cachama frita que he probado en Barinas. La porción es enorme, la piel queda súper crujiente y el precio es justo. Vengo con mi familia cada domingo y nunca nos decepciona. El servicio es de primera y la terraza es muy agradable."</p>
+                <p class="author">Maria Garcia</p>
+                <p class="date">Enero 2026</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"El ambiente es super familiar, la carne asada está espectacular con ese toque ahumado de leña. El arroz, la yuca y la guasacaca casera complementan perfecto. Muy recomendado para salir en familia o con amigos."</p>
+                <p class="author">Jose Rodriguez</p>
+                <p class="date">Febrero 2026</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"Las cachapas con queso de mano son una delicia, el maíz es fresco y se nota. El Wi-Fi gratuito es un plus para quienes trabajamos desde allí. El personal siempre está atento y amable. Me siento como en casa."</p>
+                <p class="author">Carmen Martinez</p>
+                <p class="date">Febrero 2026</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"Probamos el cochino horneado y quedó perfecto, jugoso por dentro y crujiente por fuera. La terraza es muy agradable para comer con amigos, puedes ver deportes mientras disfrutas tu plato. Excelente experiencia."</p>
+                <p class="author">Pedro Hernandez</p>
+                <p class="date">Marzo 2026</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"La fosforera es impresionante, llena de mariscos frescos y con un sabor potente. Me dijeron que era el levanta muertos de Barinas y no exageran. El lugar está impecable y el personal muy profesional."</p>
+                <p class="author">Ana Lopez</p>
+                <p class="date">Marzo 2026</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"Llegamos de Caracas y nos recomendaron este restaurante en La Caramuca. No nos arrepentimos para nada, la comida criolla es de primera. El bagre guisado y la cachama frita son imperdibles. Volveremos."</p>
+                <p class="author">Luis Fernandez</p>
+                <p class="date">Abril 2026</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"Pedimos delivery por WhatsApp y llegó rápido y caliente. La cachama frita viaja perfecto sin perder crujiente. Excelente servicio a domicilio, nos facilitaron todo por chat. Muy práctico."</p>
+                <p class="author">Isabella Torres</p>
+                <p class="date">Abril 2026</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review">"El desayuno criollo es la mejor forma de empezar el día. Caraotas negras bien sazonadas, arepa crujiente y café de calidad. Los precios son muy accesibles, entre $5 y $20 por persona. Lo recomiendo al 100%."</p>
+                <p class="author">Carlos Ramirez</p>
+                <p class="date">Mayo 2026</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section style="background-color: #fff;">
+    <div class="container text-center">
+        <div class="section-title"><h3>Tu Opinión Importa</h3><p>¿Ya nos visitaste? Déjanos tu reseña en Google</p></div>
+        <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <a href="https://wa.me/584245315396?text=Hola,%20quiero%20dar%20mi%20opinión%20sobre%20La%20Cachamita%20de%20Oro" style="background-color: #25d366; color: white; padding: 15px 30px; border-radius: 50px; font-weight: bold; font-size: 1rem;">💬 Opinar por WhatsApp</a>
+            <a href="tel:04245315396" style="background-color: var(--primary-color); color: white; padding: 15px 30px; border-radius: 50px; font-weight: bold; font-size: 1rem;">📞 Llamar y Opinar</a>
+        </div>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" style="background-color: #fff;">
+    <div class="container">
+        <div class="section-title"><h3>Galería Fotográfica</h3><p>Nuestros platos y ambiente</p></div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/plato-cachama-frita-gigante.jpeg" loading="lazy" alt="Cachama Frita Gigante Barinas"></div>
+            <div class="gallery-item"><img src="images/carne-asada-llanera-parrilla.jpeg" loading="lazy" alt="Carne Asada Llanera Barinas"></div>
+            <div class="gallery-item"><img src="images/cachapa-queso-mano-rellena.jpeg" loading="lazy" alt="Cachapa Queso de Mano Barinas"></div>
+            <div class="gallery-item"><img src="images/cochino-frito-cachapa-queso.jpeg" loading="lazy" alt="Cochino Frito Barinas"></div>
+            <div class="gallery-item"><img src="images/pabellon-criollo-venezolano.jpeg" loading="lazy" alt="Pabellon Criollo Barinas"></div>
+            <div class="gallery-item"><img src="images/la-cachamita-de-oro-fosforera-marisqueria-levanta-muertos.jpg" loading="lazy" alt="Fosforera Marisqueria Barinas"></div>
+            <div class="gallery-item"><img src="images/la-cachamita-de-oro-desayuno-criollo-caraota-queso-y-arepa.jpg" loading="lazy" alt="Desayuno Criollo Barinas"></div>
+            <div class="gallery-item"><img src="images/galeria-clientes-felices.jpeg" loading="lazy" alt="Clientes Felices Barinas"></div>
+            <div class="gallery-item"><img src="images/ceviche-mixto-barinas.jpeg" loading="lazy" alt="Ceviche Barinas"></div>
+            <div class="gallery-item"><img src="images/costilla-res-asada-carbon.jpeg" loading="lazy" alt="Costilla Asada Barinas"></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-col text-center">
+            <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="footer-logo">
+            <p style="font-size: 0.9rem;">Tradición Llanera.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Enlaces</h4>
+            <ul style="font-size: 0.9rem;">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#menu">Menú</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center" style="border-top: 1px solid #333; padding-top: 15px; font-size: 0.7rem; color: #888;">
+        <p>2026 Restaurante La Cachamita de Oro.</p>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    navLinks.forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
+    function openLightbox(src) { const lb = document.getElementById('lightbox'); document.getElementById('lightbox-img').src = src; lb.classList.add('active'); }
+    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this || e.target.classList.contains('close-lightbox')) this.classList.remove('active'); });
+</script>
+</body>
+</html>

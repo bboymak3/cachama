@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Política de Privacidad - La Cachamita de Oro</title>
+    <meta name="description" content="Política de privacidad de La Cachamita de Oro, restaurante de comida criolla en Barinas, Venezuela.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="Política de Privacidad - La Cachamita de Oro">
+    <meta property="og:description" content="Política de privacidad de La Cachamita de Oro.">
+    <meta property="og:url" content="https://cachamitadeoro.pages.dev/politica-privacidad.html">
+    <meta property="og:image" content="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+    <link rel="icon" type="image/jpeg" href="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg">
+    <style>
+        :root { --primary-color: #d35400; --secondary-color: #27ae60; --accent-color: #f39c12; --text-dark: #2c3e50; --bg-light: #fdfbf7; --white: #ffffff; --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-main); background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; overflow-x: hidden; width: 100vw; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 90%; max-width: 900px; margin: 0 auto; }
+        .text-center { text-align: center; }
+        header { background-color: rgba(255,255,255,0.95); backdrop-filter: blur(10px); box-shadow: 0 2px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; padding: 10px 0; width: 100%; }
+        .nav-container { width: 90%; max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 10px; }
+        .logo-img { height: 45px; width: auto; object-fit: contain; }
+        .logo-text h1 { font-size: 0.8rem; color: var(--primary-color); line-height: 1.1; text-transform: uppercase; font-weight: 800; }
+        .nav-menu { display: flex; gap: 10px; align-items: center; }
+        .nav-link { font-weight: 600; color: var(--text-dark); font-size: 0.85rem; text-transform: uppercase; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-color); }
+        .btn-cta { background-color: var(--secondary-color); color: white; padding: 6px 12px; border-radius: 50px; font-weight: bold; text-transform: uppercase; box-shadow: 0 4px 15px rgba(39,174,96,0.3); white-space: nowrap; font-size: 0.8rem; }
+        .btn-cta:hover { background-color: #219150; transform: translateY(-2px); }
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
+        .bar { width: 25px; height: 3px; background-color: var(--primary-color); transition: 0.3s; }
+        section { padding: 60px 0; overflow-x: hidden; }
+        .section-title { text-align: center; margin-bottom: 40px; }
+        .section-title h3 { font-size: 2rem; color: var(--primary-color); margin-bottom: 10px; font-family: 'Georgia', serif; }
+        .legal-content { background: white; border-radius: 15px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .legal-content h2 { color: var(--primary-color); font-size: 1.4rem; margin: 30px 0 15px; font-family: 'Georgia', serif; }
+        .legal-content h2:first-child { margin-top: 0; }
+        .legal-content p { font-size: 0.95rem; color: #444; margin-bottom: 15px; line-height: 1.8; }
+        .legal-content ul { list-style: disc; padding-left: 25px; margin-bottom: 15px; }
+        .legal-content ul li { font-size: 0.95rem; color: #444; margin-bottom: 8px; line-height: 1.7; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+        .gallery-item { border-radius: 10px; overflow: hidden; height: 180px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); cursor: pointer; position: relative; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item::after { content: '+'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: white; font-size: 1.5rem; opacity: 0; transition: 0.3s; pointer-events: none; text-shadow: 0 2px 5px rgba(0,0,0,0.5); }
+        .gallery-item:hover::after { opacity: 1; }
+        footer { background-color: #222; color: #fff; padding: 40px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; }
+        .footer-col h4 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-logo { height: 60px; margin-bottom: 10px; object-fit: contain; }
+        .whatsapp-float { position: fixed; bottom: 15px; left: 50%; transform: translateX(-50%); background-color: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 30px; box-shadow: 0 4px 15px rgba(37,211,102,0.4); z-index: 990; transition: transform 0.3s; }
+        .whatsapp-float:hover { transform: translateX(-50%) scale(1.1); }
+        .lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.92); justify-content: center; align-items: center; flex-direction: column; backdrop-filter: blur(8px); }
+        .lightbox.active { display: flex; animation: fadeIn 0.4s ease-out; }
+        .lightbox img { max-width: 95%; max-height: 85vh; border-radius: 5px; box-shadow: 0 0 30px rgba(255,255,255,0.15); border: 2px solid white; }
+        .close-lightbox { color: white; font-size: 50px; cursor: pointer; position: absolute; top: 20px; right: 30px; z-index: 2002; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @media (max-width: 768px) {
+            body { padding-bottom: 100px; }
+            .hamburger { display: flex; }
+            .nav-menu { position: fixed; top: 0; right: -100%; width: 85%; height: 100vh; background-color: white; flex-direction: column; padding: 80px 20px 20px; box-shadow: -5px 0 15px rgba(0,0,0,0.2); transition: 0.4s ease; z-index: 1005; overflow-y: auto; }
+            .nav-menu.active { right: 0; }
+            .nav-menu { gap: 20px; }
+            .whatsapp-float { width: 50px; height: 50px; font-size: 22px; bottom: 10px; }
+            .legal-content { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/584245315396?text=Hola,%20quiero%20pedir%20en%20La%20Cachamita%20de%20Oro" class="whatsapp-float" target="_blank">💬</a>
+<div class="lightbox" id="lightbox"><span class="close-lightbox">&times;</span><img id="lightbox-img" src="" alt="Vista Ampliada"></div>
+
+<header>
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="logo-img">
+            <div class="logo-text"><h1>LA CACHAMITA<br>DE ORO</h1></div>
+        </div>
+        <nav>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Inicio</a></li>
+                <li><a href="index.html#menu" class="nav-link">Menú</a></li>
+                <li><a href="index.html#galeria" class="nav-link">Platos</a></li>
+                <li><a href="quienes-somos.html" class="nav-link">Quiénes Somos</a></li>
+                <li><a href="index.html#videos" class="nav-link">Videos</a></li>
+                <li><a href="testimonios.html" class="nav-link">Testimonios</a></li>
+                <li><a href="preguntas-frecuentes.html" class="nav-link">FAQ</a></li>
+                <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+                <li><a href="tel:04245315396" class="btn-cta">Llamar</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" id="hamburger"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+    </div>
+</header>
+
+<section>
+    <div class="container">
+        <div class="section-title"><h3>Política de Privacidad</h3><p>La Cachamita de Oro - Barinas, Venezuela</p></div>
+        <div class="legal-content">
+
+            <h2>1. Información que Recopilamos</h2>
+            <p>En La Cachamita de Oro recopilamos únicamente la información que nuestros clientes nos proporcionan de forma voluntaria al interactuar con nosotros. Esto puede incluir su nombre, número de teléfono, dirección de entrega y preferencias alimentarias cuando realizan un pedido a través de WhatsApp o por llamada telefónica. También podemos recopilar información básica cuando los clientes nos visitan en nuestro restaurante ubicado en La Caramuca 5201, Barinas, como comentarios sobre su experiencia o sugerencias de mejora.</p>
+            <p>No utilizamos formularios de registro en línea, no recopilamos direcciones de correo electrónico automáticamente ni almacenamos datos de tarjetas de crédito. Nuestro proceso es simple y directo: tú nos contactas, nosotros tomamos tu pedido y te atendemos con la mejor disposición. Tu información personal solo se utiliza para el propósito específico por el cual fue proporcionada.</p>
+
+            <h2>2. Uso de la Información</h2>
+            <p>La información que recopilamos se utiliza exclusivamente para los siguientes fines: procesar pedidos de comida y delivery, coordinar reservas para grupos y eventos especiales, mejorar la calidad de nuestro servicio basándonos en los comentarios recibidos, y en caso de que el cliente lo autorice expresamente, informar sobre promociones, platos nuevos o eventos especiales que podamos organizar en el restaurante.</p>
+            <p>Nunca venderemos, compartiremos ni distribuiremos tu información personal a terceros con fines comerciales. Tu privacidad es importante para nosotros y respetamos la confianza que depositas en nosotros cada vez que decides comer en La Cachamita de Oro. La información de contacto se almacena únicamente en los medios de comunicación directa de nuestro equipo (WhatsApp y teléfono) para facilitar la atención personalizada.</p>
+
+            <h2>3. Protección de Datos</h2>
+            <p>Implementamos medidas razonables para proteger la información personal de nuestros clientes. Aunque no manejamos datos sensibles como información financiera directamente, tomamos precauciones para asegurar que la información de contacto proporcionada a través de WhatsApp o llamadas telefónicas sea tratada con confidencialidad y solo sea accesible para el personal autorizado de nuestro restaurante.</p>
+            <p>Nuestro equipo está capacitado para manejar la información de los clientes de manera responsable. No mantenemos bases de datos externas ni servidores propios de almacenamiento de información personal. La comunicación con nuestros clientes se realiza directamente a través de los canales mencionados y la información se gestiona conforme a las prácticas habituales de atención al cliente en el sector gastronómico venezolano.</p>
+
+            <h2>4. Cookies y Tecnologías</h2>
+            <p>Nuestro sitio web puede utilizar cookies básicas y tecnologías similares para mejorar la experiencia de navegación de los usuarios. Estas cookies pueden incluir herramientas de análisis que nos permiten entender cómo los visitantes interactúan con nuestro sitio, qué secciones visitan con más frecuencia y cómo llegan a nuestra página web. Esta información es anónima y no permite identificar personalmente a ningún usuario.</p>
+            <p>Las cookies que utilizamos son de tipo técnico y analítico, necesarias para el correcto funcionamiento del sitio web y para recopilar estadísticas agregadas de tráfico. No utilizamos cookies de rastreo publicitario ni compartimos información de navegación con redes de publicidad. Puedes configurar tu navegador para bloquear cookies si así lo deseas, aunque esto podría afectar la funcionalidad de ciertas secciones del sitio.</p>
+
+            <h2>5. Derechos del Usuario</h2>
+            <p>Como cliente de La Cachamita de Oro, tienes derecho a acceder, modificar o solicitar la eliminación de cualquier información personal que nos hayas proporcionado. Si en algún momento deseas que eliminemos tu número de teléfono de nuestra lista de contactos o que dejemos de enviarte cualquier tipo de comunicación promocional, solo debes notificarnos a través de WhatsApp o llamando al 0424-5315396 y procesaremos tu solicitud de manera inmediata.</p>
+            <p>Asimismo, tienes derecho a solicitar información sobre los datos que podamos tener sobre ti y a rectificar cualquier dato que sea incorrecto o esté desactualizado. Nos comprometemos a responder a cualquier solicitud relacionada con tus datos personales en un plazo razonable y a tomar las medidas necesarias para garantizar el ejercicio efectivo de tus derechos.</p>
+
+            <h2>6. Contacto</h2>
+            <p>Si tienes alguna pregunta, inquietud o solicitud relacionada con esta Política de Privacidad, puedes contactarnos a través de los siguientes canales. Estamos a tu disposición para aclarar cualquier duda y garantizar que tu experiencia con La Cachamita de Oro sea siempre positiva, tanto en nuestro restaurante como en nuestra presencia digital.</p>
+            <ul>
+                <li>Teléfono: <strong>0424-5315396</strong></li>
+                <li>WhatsApp: <strong>0424-5315396</strong></li>
+                <li>Email: <strong>contacto@cachamitadeorobarinas.com.ve</strong></li>
+                <li>Dirección: La Caramuca 5201, Barinas, Venezuela</li>
+            </ul>
+
+            <h2>7. Fecha de Vigencia</h2>
+            <p>Esta Política de Privacidad entra en vigencia a partir del 1 de enero de 2026 y se aplica a todas las interacciones que los clientes tengan con La Cachamita de Oro, tanto en el restaurante físico como a través de nuestros canales digitales. Nos reservamos el derecho de actualizar esta política en cualquier momento para reflejar cambios en nuestras prácticas o en la normativa vigente. Cualquier modificación será publicada en esta misma página.</p>
+
+        </div>
+    </div>
+</section>
+
+<!-- GALERÍA -->
+<section id="galeria" style="background-color: #fff;">
+    <div class="container">
+        <div class="section-title"><h3>Galería Fotográfica</h3><p>Nuestros platos y ambiente</p></div>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/equipo-restaurante-cachamita.jpeg" loading="lazy" alt="Equipo Restaurante Barinas"></div>
+            <div class="gallery-item"><img src="images/galeria-comida-criolla-1.jpeg" loading="lazy" alt="Comida Criolla Barinas"></div>
+            <div class="gallery-item"><img src="images/plato-cachama-frita-gigante.jpeg" loading="lazy" alt="Cachama Frita Barinas"></div>
+            <div class="gallery-item"><img src="images/carne-asada-llanera-parrilla.jpeg" loading="lazy" alt="Carne Asada Barinas"></div>
+            <div class="gallery-item"><img src="images/cachapa-queso-mano-rellena.jpeg" loading="lazy" alt="Cachapa Barinas"></div>
+            <div class="gallery-item"><img src="images/cochino-frito-cachapa-queso.jpeg" loading="lazy" alt="Cochino Frito Barinas"></div>
+            <div class="gallery-item"><img src="images/pabellon-criollo-venezolano.jpeg" loading="lazy" alt="Pabellon Criollo Barinas"></div>
+            <div class="gallery-item"><img src="images/la-cachamita-de-oro-fosforera-marisqueria-levanta-muertos.jpg" loading="lazy" alt="Fosforera Barinas"></div>
+            <div class="gallery-item"><img src="images/galeria-clientes-felices.jpeg" loading="lazy" alt="Clientes Felices Barinas"></div>
+            <div class="gallery-item"><img src="images/costilla-res-asada-carbon.jpeg" loading="lazy" alt="Costilla Asada Barinas"></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container footer-grid">
+        <div class="footer-col text-center">
+            <img src="images/logo-cachamita-de-oro-cachama-dorada-frita-asada-barinas.jpeg" alt="Logo" class="footer-logo">
+            <p style="font-size: 0.9rem;">Tradición Llanera.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Enlaces</h4>
+            <ul style="font-size: 0.9rem;">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#menu">Menú</a></li>
+                <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="preguntas-frecuentes.html">Preguntas Frecuentes</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="politica-privacidad.html">Política de Privacidad</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="text-center" style="border-top: 1px solid #333; padding-top: 15px; font-size: 0.7rem; color: #888;">
+        <p>2026 Restaurante La Cachamita de Oro.</p>
+    </div>
+</footer>
+
+<script>
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
+    hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+    navLinks.forEach(link => link.addEventListener('click', () => navMenu.classList.remove('active')));
+    function openLightbox(src) { const lb = document.getElementById('lightbox'); document.getElementById('lightbox-img').src = src; lb.classList.add('active'); }
+    document.getElementById('lightbox').addEventListener('click', function(e) { if (e.target === this || e.target.classList.contains('close-lightbox')) this.classList.remove('active'); });
+</script>
+</body>
+</html>
