@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 
-# Indica la ubicación del sitemap para facilitar la indexación
+# Bloquear archivos innecesarios
+Disallow: /video/
+Disallow: /*copia*
+
+# Sitemap
 Sitemap: https://cachamitadeoro.pages.dev/sitemap.xml
